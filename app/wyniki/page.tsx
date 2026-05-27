@@ -3,7 +3,7 @@ import PageHero from "@/components/PageHero";
 import SubpageCta from "@/components/SubpageCta";
 import ScrollFade from "@/components/ScrollFade";
 import PageJump from "@/components/PageJump";
-import Image from "next/image";
+import GrowthChart from "@/components/GrowthChart";
 
 export const metadata: Metadata = {
   title: "Wyniki — Adam | Growth Partner",
@@ -13,52 +13,55 @@ export const metadata: Metadata = {
 
 const cases = [
   {
-    eyebrow: "Case 01 — Trener online",
-    title: "Coaching kobiet, siłownia",
+    no: "01",
+    tag: "Coach online · trening kobiet",
+    title: "9 → 37 tys. zł",
+    titleSuffix: "MRR / 4 mies.",
     summary:
-      "Trenerka z 11 tys. obserwujących na IG, sprzedaż chaotyczna, MRR ok. 9 tys. zł. Po 4 mies. spójny lejek, evergreen webinar i kampanie Meta.",
-    image:
-      "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=2000&q=80&auto=format&fit=crop",
+      "Spójny lejek, evergreen webinar, kampanie Meta i system poleceń. Bez zwiększania budżetu reklamowego.",
+    chartPoints: [9, 11, 14, 18, 23, 30, 37],
+    chartColor: "#1ea1ff",
     metrics: [
-      { value: "+312%", label: "wzrost MRR" },
-      { value: "9k → 37k zł", label: "miesięczny przychód" },
-      { value: "2.4×", label: "CLV vs. start" },
+      { v: "+312%", l: "MRR" },
+      { v: "2.4×", l: "CLV" },
+      { v: "78%", l: "Show-up" },
     ],
-    quote:
-      "„Pierwszy raz od 3 lat mam stabilny dochód. I wiem dlaczego — bo wiem co działa.\"",
-    by: "Olivia D., coach online",
+    quote: "Pierwszy raz od 3 lat mam stabilny dochód.",
+    by: "Olivia D.",
   },
   {
-    eyebrow: "Case 02 — Studio personalne",
-    title: "Premium PT studio, Wrocław",
+    no: "02",
+    tag: "Studio personalne · Wrocław",
+    title: "+87 klientów",
+    titleSuffix: "netto / 6 mies.",
     summary:
-      "Studio z 3 trenerami, problem z zapełnianiem grafików. Praca głównie z poleceń. Po 6 mies. lokalny lejek + system poleceń = 87 nowych klientów netto.",
-    image:
-      "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=2000&q=80&auto=format&fit=crop",
+      "Lokalny lejek + system poleceń. 3 trenerów z pełnym grafikiem, 98% obłożenia, koniec luźnych okienek.",
+    chartPoints: [12, 23, 38, 54, 67, 78, 87],
+    chartColor: "#16ad36",
     metrics: [
-      { value: "+87", label: "nowych klientów / 6 mies." },
-      { value: "98%", label: "obłożenie grafiku" },
-      { value: "4.1×", label: "ROAS na Meta" },
+      { v: "98%", l: "Obłożenie" },
+      { v: "4.1×", l: "ROAS" },
+      { v: "+87", l: "Klientów" },
     ],
-    quote:
-      "„Przestałem oglądać wykresy w Excelu w niedzielę. Adam to przejął.\"",
-    by: "Marcin Z., właściciel studia",
+    quote: "Przestałem oglądać Excel w niedzielę wieczorem.",
+    by: "Marcin Z.",
   },
   {
-    eyebrow: "Case 03 — Trener niche",
-    title: "Strongman coaching, kanał online",
+    no: "03",
+    tag: "Strongman coach · kurs online",
+    title: "0 → 84 tys. zł",
+    titleSuffix: "sprzedaży / 3 mies.",
     summary:
-      "Trener z mocnymi wynikami zawodników, ale słabą sprzedażą online. Repozycjonowanie marki, content engine na YT + IG, kurs premium. 0 → 84 tys. zł sprzedaży kursu w 3 mies.",
-    image:
-      "https://images.unsplash.com/photo-1599058917765-a780eda07a3e?w=2000&q=80&auto=format&fit=crop",
+      "Repozycjonowanie marki, content engine YT + IG, sprzedaż kursu premium. Od zera do 84k w pierwszym kwartale.",
+    chartPoints: [0, 4, 12, 24, 42, 62, 84],
+    chartColor: "#ff5a1f",
     metrics: [
-      { value: "84 tys. zł", label: "sprzedaż kursu w 3 mies." },
-      { value: "0 → 8.2k", label: "obserwujący IG" },
-      { value: "23%", label: "konwersja na rozmowach" },
+      { v: "84k zł", l: "Sprzedaż" },
+      { v: "8.2k", l: "Followers" },
+      { v: "23%", l: "Konwersja" },
     ],
-    quote:
-      "„Myślałem, że potrzebuję więcej zasięgu. Okazało się, że potrzebowałem strategii.\"",
-    by: "Kamil W., strongman coach",
+    quote: "Potrzebowałem strategii, nie zasięgu.",
+    by: "Kamil W.",
   },
 ];
 
@@ -79,60 +82,81 @@ export default function WynikiPage() {
 
       <section className="bg-paper px-5 sm:px-6 md:px-12 lg:px-16 py-16 sm:py-20 md:py-32">
         <ScrollFade>
-          <div className="mx-auto max-w-[1440px] flex flex-col gap-16 sm:gap-20 md:gap-32">
-          {cases.map((c, i) => (
-            <article
-              key={c.title}
-              className={`grid grid-cols-1 md:grid-cols-12 gap-7 sm:gap-10 md:gap-16 items-center ${
-                i % 2 === 1 ? "md:[&>.case-img]:order-2" : ""
-              }`}
-            >
-              <div className="case-img md:col-span-7 relative aspect-[16/11] overflow-hidden rounded-2xl sm:rounded-[28px] grain">
-                <Image
-                  src={c.image}
-                  alt=""
-                  fill
-                  sizes="(min-width: 768px) 58vw, 100vw"
-                  className="object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-ink/30 via-transparent to-transparent" />
-              </div>
-              <div className="md:col-span-5">
-                <span className="font-mono text-[10px] sm:text-[11px] uppercase tracking-[0.18em] sm:tracking-[0.22em] text-ink/55">
-                  {c.eyebrow}
-                </span>
-                <h2 className="mt-3 sm:mt-4 font-display text-[clamp(26px,5.4vw,52px)] text-ink leading-[1.04] tracking-[-0.035em] [text-wrap:balance]">
-                  {c.title}
-                </h2>
-                <p className="mt-4 sm:mt-5 text-[14.5px] sm:text-[15px] leading-[1.6] sm:leading-[1.65] text-ink/75 max-w-md [text-wrap:pretty]">
-                  {c.summary}
-                </p>
+          <div className="mx-auto max-w-[1440px]">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-5">
+              {cases.map((c) => (
+                <article
+                  key={c.no}
+                  className="group relative flex flex-col gap-5 sm:gap-6 rounded-2xl sm:rounded-3xl bg-paper border border-ink/[0.08] p-6 sm:p-7 lg:p-8 hover:border-ink/30 transition-colors duration-300"
+                >
+                  {/* Header */}
+                  <div className="flex items-baseline justify-between">
+                    <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-ink/55">
+                      / Case {c.no}
+                    </span>
+                    <span className="font-mono text-[9.5px] uppercase tracking-[0.16em] text-ink/35">
+                      live
+                    </span>
+                  </div>
 
-                <div className="mt-6 sm:mt-8 grid grid-cols-3 gap-3 sm:gap-4 border-y border-ink/[0.1] py-4 sm:py-6">
-                  {c.metrics.map((m) => (
-                    <div key={m.label} className="flex flex-col gap-1">
-                      <span className="font-display text-[18px] sm:text-[22px] md:text-[28px] text-ink leading-[1.05] tracking-[-0.02em]">
-                        {m.value}
-                      </span>
-                      <span className="font-mono text-[9.5px] sm:text-[10.5px] md:text-[11px] uppercase tracking-[0.14em] sm:tracking-[0.16em] text-ink/55 leading-tight">
-                        {m.label}
-                      </span>
+                  {/* Tag */}
+                  <div className="font-mono text-[10.5px] sm:text-[11px] uppercase tracking-[0.16em] text-ink/65 leading-[1.4]">
+                    {c.tag}
+                  </div>
+
+                  {/* Title */}
+                  <div>
+                    <div className="font-display text-[clamp(26px,3.2vw,38px)] leading-[1.02] tracking-[-0.035em] text-ink [text-wrap:balance]">
+                      {c.title}
                     </div>
-                  ))}
-                </div>
+                    <div className="mt-1 font-mono text-[10.5px] uppercase tracking-[0.16em] text-ink/55">
+                      {c.titleSuffix}
+                    </div>
+                  </div>
 
-                <blockquote className="mt-6 sm:mt-7">
-                  <p className="font-display text-[16.5px] sm:text-[18px] md:text-[20px] leading-[1.4] sm:leading-[1.45] text-ink/85 italic [text-wrap:balance]">
-                    {c.quote}
+                  {/* Chart */}
+                  <div className="relative h-[90px] -mx-1" style={{ color: c.chartColor }}>
+                    <GrowthChart points={c.chartPoints} color={c.chartColor} />
+                    <span className="absolute top-0 right-0 font-mono text-[10px] uppercase tracking-[0.16em] text-ink/45">
+                      ↗
+                    </span>
+                  </div>
+
+                  {/* Summary */}
+                  <p className="text-[13px] sm:text-[13.5px] leading-[1.55] text-ink/70 [text-wrap:pretty]">
+                    {c.summary}
                   </p>
-                  <cite className="mt-3 block text-[13px] sm:text-sm not-italic text-ink/60">
-                    {c.by}
-                  </cite>
-                </blockquote>
-              </div>
-            </article>
-          ))}
-        </div>
+
+                  {/* Metrics */}
+                  <div className="grid grid-cols-3 border-y border-ink/[0.08] divide-x divide-ink/[0.06] -mx-1">
+                    {c.metrics.map((m) => (
+                      <div
+                        key={m.l}
+                        className="flex flex-col items-start gap-0.5 px-3 py-3 first:pl-1"
+                      >
+                        <span className="font-display text-[16px] sm:text-[18px] leading-none tracking-[-0.02em] text-ink tabular-nums">
+                          {m.v}
+                        </span>
+                        <span className="font-mono text-[9.5px] uppercase tracking-[0.14em] text-ink/55">
+                          {m.l}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* Quote */}
+                  <blockquote className="mt-auto">
+                    <p className="text-[13px] leading-[1.5] text-ink/80 italic">
+                      „{c.quote}"
+                    </p>
+                    <cite className="mt-2 block text-[11px] text-ink/55 not-italic font-mono uppercase tracking-[0.14em]">
+                      — {c.by}
+                    </cite>
+                  </blockquote>
+                </article>
+              ))}
+            </div>
+          </div>
         </ScrollFade>
       </section>
 
@@ -140,25 +164,25 @@ export default function WynikiPage() {
       <section className="bg-paper-100 border-y border-ink/[0.08]">
         <ScrollFade>
           <div className="mx-auto max-w-[1440px] grid grid-cols-2 md:grid-cols-4 divide-x divide-y md:divide-y-0 divide-ink/[0.08]">
-          {[
-            { v: "30+", l: "Trenerów" },
-            { v: "4.2M zł", l: "Przychodu" },
-            { v: "3.7×", l: "Średni ROAS" },
-            { v: "92%", l: "Przedłuża współpracę" },
-          ].map((s) => (
-            <div
-              key={s.l}
-              className="flex flex-col items-center justify-center gap-1 px-4 sm:px-6 py-7 sm:py-10 text-center"
-            >
-              <span className="font-display text-[24px] sm:text-[32px] md:text-[40px] tracking-[-0.02em] text-ink leading-none">
-                {s.v}
-              </span>
-              <span className="font-mono text-[9.5px] sm:text-[11px] uppercase tracking-[0.16em] sm:tracking-[0.2em] text-ink/55 mt-1.5 sm:mt-2 [text-wrap:balance]">
-                {s.l}
-              </span>
-            </div>
-          ))}
-        </div>
+            {[
+              { v: "30+", l: "Trenerów" },
+              { v: "4.2M zł", l: "Przychodu" },
+              { v: "3.7×", l: "Średni ROAS" },
+              { v: "92%", l: "Przedłuża współpracę" },
+            ].map((s) => (
+              <div
+                key={s.l}
+                className="flex flex-col items-center justify-center gap-1 px-4 sm:px-6 py-7 sm:py-10 text-center"
+              >
+                <span className="font-display text-[24px] sm:text-[32px] md:text-[40px] tracking-[-0.02em] text-ink leading-none">
+                  {s.v}
+                </span>
+                <span className="font-mono text-[9.5px] sm:text-[11px] uppercase tracking-[0.16em] sm:tracking-[0.2em] text-ink/55 mt-1.5 sm:mt-2 [text-wrap:balance]">
+                  {s.l}
+                </span>
+              </div>
+            ))}
+          </div>
         </ScrollFade>
       </section>
 

@@ -166,9 +166,10 @@ function AnimatedBadge({
   useEffect(() => {
     if (!trigger) return;
     const controls = animate(mv, to, {
-      duration: 3.8,
+      duration: 7.6,
       delay,
-      ease: [0.16, 1, 0.3, 1],
+      // Strong end-slowdown — quintic ease-out so the final 20% really crawls.
+      ease: [0.05, 0.9, 0.15, 1],
       onUpdate: (v) => setDisplay(Math.round(v)),
     });
     return () => controls.stop();

@@ -21,7 +21,7 @@ type Props = {
 export default function ScrollFade({
   children,
   className = "",
-  strength = 8,
+  strength = 5,
 }: Props) {
   const ref = useRef<HTMLDivElement>(null);
   const prefersReducedMotion = useReducedMotion();

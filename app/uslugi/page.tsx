@@ -168,58 +168,36 @@ export default function UslugiPage() {
             {models.map((m, i) => (
               <div
                 key={m.name}
-                className={`flex flex-col gap-5 sm:gap-6 rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-10 ${
-                  i === 0
-                    ? "bg-ink text-paper"
-                    : "bg-paper border border-ink/[0.08]"
-                }`}
+                className="group flex flex-col gap-5 sm:gap-6 rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-10 bg-paper border border-ink/[0.08] hover:bg-ink hover:border-ink transition-[background-color,border-color] duration-300 ease-out cursor-default"
               >
                 <div className="flex flex-col gap-1">
-                  <span
-                    className={`font-mono text-[10px] sm:text-[11px] uppercase tracking-[0.18em] sm:tracking-[0.2em] ${
-                      i === 0 ? "text-paper/60" : "text-ink/55"
-                    }`}
-                  >
+                  <span className="font-mono text-[10px] sm:text-[11px] uppercase tracking-[0.18em] sm:tracking-[0.2em] text-ink/55 group-hover:text-paper/60 transition-colors duration-300">
                     Model {String(i + 1).padStart(2, "0")}
                   </span>
-                  <h3 className="font-display text-[24px] sm:text-[28px] tracking-[-0.02em] leading-[1.1]">
+                  <h3 className="font-display text-[24px] sm:text-[28px] tracking-[-0.02em] leading-[1.1] text-ink group-hover:text-paper transition-colors duration-300">
                     {m.name}
                   </h3>
                 </div>
                 <div>
-                  <div className="font-display text-[22px] sm:text-[26px] md:text-[28px] leading-[1.05] tracking-[-0.02em] [text-wrap:balance]">
+                  <div className="font-display text-[22px] sm:text-[26px] md:text-[28px] leading-[1.05] tracking-[-0.02em] [text-wrap:balance] text-ink group-hover:text-paper transition-colors duration-300">
                     {m.price}
                   </div>
                   {m.sub && (
-                    <div
-                      className={`mt-1 text-sm ${
-                        i === 0 ? "text-paper/60" : "text-ink/55"
-                      }`}
-                    >
+                    <div className="mt-1 text-sm text-ink/55 group-hover:text-paper/60 transition-colors duration-300">
                       {m.sub}
                     </div>
                   )}
                 </div>
-                <p
-                  className={`text-[14px] leading-[1.6] ${
-                    i === 0 ? "text-paper/80" : "text-ink/75"
-                  }`}
-                >
+                <p className="text-[14px] leading-[1.6] text-ink/75 group-hover:text-paper/80 transition-colors duration-300">
                   {m.description}
                 </p>
                 <ul className="flex flex-col gap-2 mt-auto">
                   {m.fits.map((f) => (
                     <li
                       key={f}
-                      className={`flex items-start gap-2 text-[13px] ${
-                        i === 0 ? "text-paper/85" : "text-ink/80"
-                      }`}
+                      className="flex items-start gap-2 text-[13px] text-ink/80 group-hover:text-paper/85 transition-colors duration-300"
                     >
-                      <span
-                        className={`mt-[7px] inline-block h-[3px] w-[3px] rounded-full shrink-0 ${
-                          i === 0 ? "bg-paper/60" : "bg-ink/50"
-                        }`}
-                      />
+                      <span className="mt-[7px] inline-block h-[3px] w-[3px] rounded-full shrink-0 bg-ink/50 group-hover:bg-paper/60 transition-colors duration-300" />
                       {f}
                     </li>
                   ))}

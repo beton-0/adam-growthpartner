@@ -99,10 +99,6 @@ export default function HomeHero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.05 }}
               className="font-display text-[clamp(34px,7.2vw,84px)] text-ink leading-[1.02] tracking-[-0.035em] [text-wrap:balance] break-words"
-              style={{
-                textShadow:
-                  "0 1px 0 rgba(255,255,255,0.6), 0 0 40px rgba(255,255,255,0.7), 0 0 80px rgba(255,210,180,0.25)",
-              }}
             >
               <span className="block">
                 Dzięki GrowthOS<span className="tm">™</span> zyskujesz
