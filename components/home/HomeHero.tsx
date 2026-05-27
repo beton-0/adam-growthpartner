@@ -1,98 +1,132 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
+import { useEffect, useState } from "react";
+
+const rotations = [
+  "więcej klientów",
+  "pełny kalendarz",
+  "stabilny przychód",
+  "15h tygodniowo z powrotem",
+  "marketing, który się sam dzieje",
+  "kontrolę nad biznesem",
+];
 
 export default function HomeHero() {
-  return (
-    <section className="relative isolate flex min-h-svh flex-col overflow-hidden bg-paper lg:h-svh lg:min-h-0">
-      {/* Background image */}
-      <div className="absolute inset-0 -z-10">
-        <Image
-          src="https://images.unsplash.com/photo-1534258936925-c58bed479fcb?w=2400&q=80&auto=format&fit=crop"
-          alt=""
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover object-center"
-        />
-        {/* Warm paper-tinted overlay so headline reads on any image */}
-        <div className="absolute inset-0 bg-gradient-to-r from-paper/95 via-paper/60 to-paper/20" />
-        <div className="absolute inset-0 bg-gradient-to-t from-paper/70 via-transparent to-transparent" />
-      </div>
+  const [index, setIndex] = useState(0);
 
-      {/* Soft bottom glow */}
+  useEffect(() => {
+    const id = setInterval(() => {
+      setIndex((i) => (i + 1) % rotations.length);
+    }, 2400);
+    return () => clearInterval(id);
+  }, []);
+
+  return (
+    <section className="relative isolate flex min-h-svh flex-col overflow-hidden bg-paper">
+      {/* faint grid backdrop */}
+      <div className="absolute inset-0 -z-10 grid-bg opacity-90" />
+      {/* radial fade from top so headline pops */}
       <div
         aria-hidden
-        className="pointer-events-none absolute -bottom-32 -left-32 h-[600px] w-[800px] rounded-full bg-paper/90 blur-[120px] -z-10"
+        className="absolute inset-0 -z-10 bg-gradient-to-b from-paper via-paper/60 to-paper"
       />
 
-      {/* Content */}
-      <div className="relative z-10 mt-auto flex w-full flex-col items-start gap-7 px-6 md:px-12 lg:px-16 pt-32 pb-16 lg:absolute lg:bottom-[14vh] lg:left-16 lg:max-w-[640px] lg:px-0 lg:pt-0 lg:pb-0">
-        <motion.span
-          initial={{ opacity: 0, y: 8 }}
+      <div className="relative z-10 mx-auto flex w-full max-w-[1440px] flex-1 flex-col justify-center px-6 md:px-12 lg:px-16 pt-32 pb-20 md:pt-40">
+        {/* Brand mark + status chip */}
+        <motion.div
+          initial={{ opacity: 0, y: 6 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="inline-flex items-center gap-2 text-[12px] uppercase tracking-[0.22em] text-ink/70"
+          transition={{ duration: 0.5 }}
+          className="flex flex-wrap items-center gap-3 mb-10"
         >
-          <span className="inline-block h-1.5 w-1.5 rounded-full bg-emerald-600" />
-          Przyjmuję 2 nowych trenerów w tym kwartale
-        </motion.span>
+          <span className="inline-flex items-center gap-2 rounded-full border border-ink/15 bg-paper/80 backdrop-blur-sm px-3 py-1.5 text-[11px] font-medium uppercase tracking-[0.18em] text-ink/70">
+            <span className="font-mono text-ink/55">v.2026</span>
+            <span className="text-ink/30">/</span>
+            <span>System sprzedaży dla trenerów</span>
+          </span>
+          <span className="inline-flex items-center gap-2 text-[11px] font-medium uppercase tracking-[0.18em] text-ink/55">
+            <span className="relative flex h-1.5 w-1.5">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-500 opacity-70" />
+              <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-emerald-600" />
+            </span>
+            2 miejsca otwarte / Q1
+          </span>
+        </motion.div>
 
+        {/* Main headline */}
         <motion.h1
-          initial={{ opacity: 0, y: 16 }}
+          initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.05 }}
-          className="font-display text-[clamp(44px,7.4vw,84px)] text-ink"
+          transition={{ duration: 0.6, delay: 0.05 }}
+          className="font-display text-[clamp(44px,7.6vw,108px)] text-ink max-w-[18ch]"
         >
-          Buduję systemy sprzedaży{" "}
-          <span className="italic font-light text-ink/85">dla trenerów</span>,
-          którzy chcą skalować.
+          Dzięki GrowthOS<span className="tm">™</span> zyskujesz{" "}
+          <span className="relative inline-block align-baseline">
+            {/* Reserve width via invisible longest item */}
+            <span aria-hidden className="invisible whitespace-nowrap">
+              {rotations.reduce((a, b) => (a.length >= b.length ? a : b))}
+            </span>
+            <span className="absolute inset-0 flex items-baseline">
+              <AnimatePresence mode="wait">
+                <motion.span
+                  key={rotations[index]}
+                  initial={{ opacity: 0, y: 18, filter: "blur(8px)" }}
+                  animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                  exit={{ opacity: 0, y: -18, filter: "blur(8px)" }}
+                  transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+                  className="whitespace-nowrap text-ink"
+                  style={{
+                    backgroundImage:
+                      "linear-gradient(180deg, #0a0a0a 0%, #2a2a2a 100%)",
+                    WebkitBackgroundClip: "text",
+                    backgroundClip: "text",
+                  }}
+                >
+                  {rotations[index]}
+                </motion.span>
+              </AnimatePresence>
+            </span>
+          </span>
+          <span className="text-ink">.</span>
         </motion.h1>
 
-        <motion.p
-          initial={{ opacity: 0, y: 12 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.15 }}
-          className="max-w-[520px] text-[15px] md:text-base leading-[1.6] text-ink/75"
-        >
-          Lejki, reklamy, treści i automatyzacje, które realnie zwiększają
-          przychody trenerów personalnych i online. Wynagradzany od wyników —
-          nie od godzin.
-        </motion.p>
-
+        {/* CTAs */}
         <motion.div
-          initial={{ opacity: 0, y: 12 }}
+          initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.25 }}
-          className="flex flex-wrap items-center gap-3"
+          transition={{ duration: 0.5, delay: 0.25 }}
+          className="mt-14 flex flex-wrap items-center gap-3"
         >
           <Link
             href="/kontakt"
-            className="relative inline-flex items-center justify-center rounded-full bg-ink px-5 py-3 text-sm font-medium leading-none text-paper transition-[opacity,scale] duration-150 hover:opacity-90 active:scale-[0.97]"
+            className="relative inline-flex items-center justify-center rounded-full bg-ink px-6 py-3.5 text-sm font-medium leading-none text-paper transition-[opacity,scale] duration-150 hover:opacity-90 active:scale-[0.97]"
           >
-            Umów bezpłatną rozmowę
+            Umów demo systemu
           </Link>
           <Link
-            href="/wyniki"
-            className="relative inline-flex items-center justify-center rounded-full px-5 py-3 text-sm font-medium leading-none text-ink hover:opacity-70 transition-opacity"
+            href="/proces"
+            className="relative inline-flex items-center justify-center rounded-full border border-ink/15 bg-paper/60 px-6 py-3.5 text-sm font-medium leading-none text-ink hover:bg-paper hover:border-ink/30 transition-colors"
           >
-            Zobacz wyniki →
+            Zobacz, jak działa →
           </Link>
         </motion.div>
-      </div>
 
-      {/* Tiny scroll indicator */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.6, duration: 1 }}
-        className="absolute bottom-6 right-6 md:right-12 lg:right-16 z-10 hidden md:flex items-center gap-3 text-xs uppercase tracking-[0.2em] text-ink/55"
-      >
-        <span>Przewiń</span>
-        <span className="inline-block h-px w-10 bg-ink/40" />
-      </motion.div>
+        {/* bottom mini-row */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.6, delay: 0.5 }}
+          className="mt-auto pt-20 flex flex-wrap items-center gap-x-8 gap-y-3 text-[12px] text-ink/55"
+        >
+          <span className="font-mono">Trenerzy 5–60 tys. zł / mies.</span>
+          <span className="hidden md:inline text-ink/20">·</span>
+          <span className="font-mono">Setup 14 dni</span>
+          <span className="hidden md:inline text-ink/20">·</span>
+          <span className="font-mono">Rozliczenie od wyniku</span>
+        </motion.div>
+      </div>
     </section>
   );
 }

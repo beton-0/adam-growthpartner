@@ -171,7 +171,7 @@ export default function ProcesPage() {
                 <span className="font-mono text-[12px] text-paper/45">
                   {String(i + 1).padStart(2, "0")}
                 </span>
-                <h3 className="font-serif text-[24px] md:text-[28px] tracking-[-0.02em] text-paper">
+                <h3 className="font-display text-[24px] md:text-[28px] tracking-[-0.02em] text-paper">
                   {pr.title}
                 </h3>
                 <p className="text-[14px] leading-[1.6] text-paper/65 max-w-md">

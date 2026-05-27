@@ -6,14 +6,14 @@ const config: Config = {
     extend: {
       colors: {
         paper: {
-          DEFAULT: "#f5f3ec",
-          50: "#fbfaf5",
-          100: "#f5f3ec",
-          200: "#ece9de",
-          300: "#dcd7c4",
+          DEFAULT: "#f7f7f4",
+          50: "#fbfbf9",
+          100: "#f7f7f4",
+          200: "#efefe9",
+          300: "#dededa",
         },
         ink: {
-          DEFAULT: "#0c0c0c",
+          DEFAULT: "#0a0a0a",
           50: "#f4f4f3",
           100: "#e3e2df",
           200: "#c8c6c0",
@@ -23,13 +23,17 @@ const config: Config = {
           600: "#3f3d39",
           700: "#2a2926",
           800: "#181816",
-          900: "#0c0c0c",
+          900: "#0a0a0a",
         },
-        card: "#ece9de",
+        accent: {
+          DEFAULT: "#ff5a1f",
+          soft: "#ffece4",
+        },
+        card: "#efefe9",
       },
       fontFamily: {
         sans: ["var(--font-sans)", "system-ui", "sans-serif"],
-        serif: ["var(--font-serif)", "Georgia", "serif"],
+        display: ["var(--font-display)", "system-ui", "sans-serif"],
         mono: ["var(--font-mono)", "ui-monospace", "monospace"],
       },
       letterSpacing: {

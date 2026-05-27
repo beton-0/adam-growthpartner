@@ -1,21 +1,20 @@
 import type { Metadata } from "next";
-import { Inter_Tight, Fraunces, JetBrains_Mono } from "next/font/google";
+import { Inter, Inter_Tight, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import SiteNav from "@/components/SiteNav";
 import SiteFooter from "@/components/SiteFooter";
 
-const sans = Inter_Tight({
+const sans = Inter({
   subsets: ["latin", "latin-ext"],
   weight: ["400", "500", "600", "700"],
   variable: "--font-sans",
   display: "swap",
 });
 
-const serif = Fraunces({
+const display = Inter_Tight({
   subsets: ["latin", "latin-ext"],
-  weight: ["300", "400", "500", "600", "700"],
-  style: ["normal", "italic"],
-  variable: "--font-serif",
+  weight: ["500", "600", "700", "800"],
+  variable: "--font-display",
   display: "swap",
 });
 
@@ -27,9 +26,9 @@ const mono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Adam | Growth Partner — Systemy sprzedaży dla trenerów",
+  title: "GrowthOS™ — System sprzedaży dla trenerów",
   description:
-    "Buduję systemy sprzedaży dla trenerów personalnych i online. Lejki, reklamy, treści i automatyzacje, które zwiększają przychody — wynagradzany od wyników.",
+    "Dzięki GrowthOS™ zyskujesz więcej klientów, pełny kalendarz i stabilny przychód. System sprzedaży dla trenerów personalnych i online — działa, gdy Ty nie pracujesz.",
 };
 
 export default function RootLayout({
@@ -40,7 +39,7 @@ export default function RootLayout({
   return (
     <html
       lang="pl"
-      className={`${sans.variable} ${serif.variable} ${mono.variable} h-full antialiased`}
+      className={`${sans.variable} ${display.variable} ${mono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col font-sans bg-paper text-ink-900">
         <SiteNav />

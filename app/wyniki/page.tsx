@@ -119,7 +119,7 @@ export default function WynikiPage() {
                 </div>
 
                 <blockquote className="mt-7">
-                  <p className="font-serif text-[18px] md:text-[20px] leading-[1.45] text-ink/85 italic">
+                  <p className="font-display text-[18px] md:text-[20px] leading-[1.45] text-ink/85 italic">
                     {c.quote}
                   </p>
                   <cite className="mt-3 block text-sm not-italic text-ink/60">

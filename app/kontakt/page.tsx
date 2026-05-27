@@ -46,7 +46,7 @@ export default function KontaktPage() {
             },
           ].map((b) => (
             <div key={b.t} className="flex flex-col gap-2">
-              <span className="font-serif text-[22px] tracking-[-0.02em] text-ink">
+              <span className="font-display text-[22px] tracking-[-0.02em] text-ink">
                 {b.t}
               </span>
               <p className="text-[14px] leading-[1.6] text-ink/70 max-w-xs">

@@ -5,18 +5,17 @@ export default function SiteFooter() {
     <footer className="relative overflow-hidden bg-paper px-6 md:px-12 lg:px-16 pt-20 pb-16 md:pt-28 md:pb-20 border-t border-ink/[0.08]">
       <div className="relative z-10 mx-auto flex w-full max-w-[1440px] flex-col gap-12 lg:flex-row lg:items-start lg:justify-between">
         <div className="flex flex-col items-start gap-6 max-w-md">
-          <Link href="/" className="inline-flex items-end gap-2 text-ink">
-            <span className="font-serif text-[28px] leading-none tracking-[-0.03em]">
-              Adam
+          <Link href="/" className="inline-flex items-baseline gap-2 text-ink">
+            <span className="font-display text-[26px] leading-none tracking-[-0.035em] font-semibold">
+              GrowthOS<span className="tm">™</span>
             </span>
-            <span className="text-[11px] uppercase tracking-[0.22em] text-ink/55 mb-1">
-              Growth Partner
+            <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-ink/45">
+              by Adam
             </span>
           </Link>
-          <p className="font-serif text-[20px] leading-[1.35] tracking-[-0.01em] text-ink/75">
-            Buduję systemy sprzedaży dla trenerów,{" "}
-            <span className="italic">którzy chcą skalować</span> — bez chaosu,
-            bez przepalania budżetu.
+          <p className="text-[15px] leading-[1.55] text-ink/70">
+            System sprzedaży dla trenerów. Acquisition, content, sales, retention —
+            cztery moduły, jeden silnik, mierzalne wyniki.
           </p>
           <Link
             href="/kontakt"
@@ -28,7 +27,7 @@ export default function SiteFooter() {
 
         <div className="flex flex-col sm:flex-row gap-10 sm:gap-16 lg:gap-20">
           <div className="flex flex-col gap-4">
-            <h3 className="font-serif text-[16px] font-medium tracking-[-0.01em] text-ink">
+            <h3 className="font-display text-[16px] font-medium tracking-[-0.01em] text-ink">
               Strony
             </h3>
             {[
@@ -48,7 +47,7 @@ export default function SiteFooter() {
             ))}
           </div>
           <div className="flex flex-col gap-4">
-            <h3 className="font-serif text-[16px] font-medium tracking-[-0.01em] text-ink">
+            <h3 className="font-display text-[16px] font-medium tracking-[-0.01em] text-ink">
               Kontakt
             </h3>
             <a
@@ -78,10 +77,8 @@ export default function SiteFooter() {
       </div>
 
       <div className="relative z-10 mx-auto mt-16 flex w-full max-w-[1440px] flex-col gap-3 sm:flex-row sm:items-center sm:justify-between border-t border-ink/[0.08] pt-6 text-xs text-ink/55">
-        <p>© {new Date().getFullYear()} Adam — Growth Partner. Wszystkie prawa zastrzeżone.</p>
-        <p>
-          Strona zbudowana z uwagą — Next.js, Tailwind, Framer Motion.
-        </p>
+        <p className="font-mono">© {new Date().getFullYear()} GrowthOS™ · Adam Gawrysiak. Wszystkie prawa zastrzeżone.</p>
+        <p className="font-mono">Built with Next.js · Tailwind · Framer Motion</p>
       </div>
     </footer>
   );

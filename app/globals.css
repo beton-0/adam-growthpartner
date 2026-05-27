@@ -3,11 +3,11 @@
 @tailwind utilities;
 
 :root {
-  --paper: #f5f3ec;
-  --paper-2: #ece9de;
-  --ink: #0c0c0c;
-  --ink-soft: rgba(12, 12, 12, 0.7);
-  --line: rgba(12, 12, 12, 0.1);
+  --paper: #f7f7f4;
+  --paper-2: #efefe9;
+  --ink: #0a0a0a;
+  --ink-soft: rgba(10, 10, 10, 0.7);
+  --line: rgba(10, 10, 10, 0.08);
 }
 
 html {
@@ -17,7 +17,7 @@ html {
 body {
   background: var(--paper);
   color: var(--ink);
-  font-feature-settings: "ss01", "cv11";
+  font-feature-settings: "ss01", "cv11", "tnum";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   letter-spacing: -0.011em;
@@ -28,40 +28,43 @@ body {
   color: var(--paper);
 }
 
-/* Editorial serif — Fraunces with soft, optical sizing */
-.font-serif {
-  font-variation-settings: "opsz" 144, "SOFT" 50;
-}
-
-/* Display serif — used for huge headings */
+/* Display headlines — Inter Tight, tight letterspacing */
 .font-display {
-  font-family: var(--font-serif), Georgia, serif;
-  font-weight: 500;
-  letter-spacing: -0.03em;
-  line-height: 1.04;
-  font-variation-settings: "opsz" 144, "SOFT" 50;
+  font-family: var(--font-display), system-ui, sans-serif;
+  font-weight: 600;
+  letter-spacing: -0.035em;
+  line-height: 1.02;
 }
 
-/* Subtle grain on hero images to feel less stocky */
+/* Mono helper — for system schematics and tabular numerals */
+.font-mono {
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-feature-settings: "ss01", "tnum";
+}
+
+/* Faint grid background for systemic / SaaS feel */
+.grid-bg {
+  background-image:
+    linear-gradient(to right, rgba(10, 10, 10, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(10, 10, 10, 0.04) 1px, transparent 1px);
+  background-size: 64px 64px;
+}
+
+/* Subtle dot pattern alt */
+.dot-bg {
+  background-image: radial-gradient(rgba(10, 10, 10, 0.08) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+/* Soft grain on photos */
 .grain::after {
   content: "";
   position: absolute;
   inset: 0;
   pointer-events: none;
-  opacity: 0.08;
+  opacity: 0.06;
   mix-blend-mode: overlay;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-}
-
-/* Marquee mask for trust strip */
-.marquee-mask {
-  mask-image: linear-gradient(
-    to right,
-    transparent,
-    black 8%,
-    black 92%,
-    transparent
-  );
 }
 
 /* Hide scrollbar utility */
@@ -70,4 +73,12 @@ body {
 }
 .no-scrollbar {
   scrollbar-width: none;
+}
+
+/* Trademark mark — slightly smaller and raised */
+.tm {
+  font-size: 0.5em;
+  vertical-align: 0.55em;
+  margin-left: 0.05em;
+  letter-spacing: 0;
 }

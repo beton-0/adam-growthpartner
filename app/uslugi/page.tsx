@@ -177,7 +177,7 @@ export default function UslugiPage() {
                   >
                     Model {String(i + 1).padStart(2, "0")}
                   </span>
-                  <h3 className="font-serif text-[28px] tracking-[-0.02em]">
+                  <h3 className="font-display text-[28px] tracking-[-0.02em]">
                     {m.name}
                   </h3>
                 </div>

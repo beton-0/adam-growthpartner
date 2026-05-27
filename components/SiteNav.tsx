@@ -35,14 +35,14 @@ export default function SiteNav({ variant = "overlay" }: { variant?: "overlay" |
     >
       <Link
         href="/"
-        aria-label="Adam — Growth Partner"
-        className="group inline-flex items-center gap-2 text-ink"
+        aria-label="GrowthOS — System sprzedaży dla trenerów"
+        className="group inline-flex items-baseline gap-2 text-ink"
       >
-        <span className="font-serif text-[22px] leading-none tracking-[-0.03em]">
-          Adam
+        <span className="font-display text-[20px] leading-none tracking-[-0.035em] font-semibold">
+          GrowthOS<span className="tm">™</span>
         </span>
-        <span className="hidden sm:inline-block text-[12px] uppercase tracking-[0.18em] text-ink/55 mt-[3px]">
-          Growth Partner
+        <span className="hidden sm:inline-block font-mono text-[10px] uppercase tracking-[0.18em] text-ink/45">
+          by Adam
         </span>
       </Link>
 
