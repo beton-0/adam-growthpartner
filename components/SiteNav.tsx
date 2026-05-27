@@ -84,9 +84,9 @@ export default function SiteNav({ variant = "overlay" }: { variant?: "overlay" |
       <div className="flex items-center gap-2">
         <Link
           href="/kontakt"
-          className="hidden md:inline-flex relative items-center justify-center min-h-[40px] rounded-full bg-ink px-4 py-2 text-sm font-medium leading-none text-paper transition-[opacity,scale] duration-150 hover:opacity-90 active:scale-[0.97]"
+          className="hidden md:inline-flex pulse-cta relative items-center justify-center min-h-[40px] rounded-full bg-ink px-4 py-2 text-sm font-medium leading-none text-paper transition-[opacity,scale] duration-150 hover:opacity-90 active:scale-[0.97]"
         >
-          Umów rozmowę
+          Umów konsultację
         </Link>
         <button
           aria-label={open ? "Zamknij menu" : "Otwórz menu"}
@@ -137,9 +137,9 @@ export default function SiteNav({ variant = "overlay" }: { variant?: "overlay" |
             <Link
               href="/kontakt"
               onClick={() => setOpen(false)}
-              className="mt-6 inline-flex items-center justify-center min-h-[52px] rounded-full bg-ink px-6 py-4 text-[15px] font-medium text-paper"
+              className="mt-6 pulse-cta inline-flex items-center justify-center min-h-[52px] rounded-full bg-ink px-6 py-4 text-[15px] font-medium text-paper"
             >
-              Umów demo systemu →
+              Umów bezpłatną konsultację →
             </Link>
             <p className="mt-6 font-mono text-[11px] uppercase tracking-[0.18em] text-ink/45 text-center">
               GrowthOS<span className="tm">™</span> · by Adam

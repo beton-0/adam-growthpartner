@@ -24,7 +24,7 @@ export default function SiteFooter() {
             href="/kontakt"
             className="inline-flex items-center gap-2 min-h-[44px] py-2 text-[13.5px] sm:text-sm text-ink/80 hover:text-ink underline decoration-ink/30 underline-offset-4 hover:decoration-ink"
           >
-            Umów bezpłatną rozmowę →
+            Umów bezpłatną konsultację →
           </Link>
         </div>
 

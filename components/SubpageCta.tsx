@@ -1,9 +1,9 @@
-import Link from "next/link";
+import PulseCTA from "@/components/PulseCTA";
 
 export default function SubpageCta({
   title,
   subtitle,
-  cta = "Umów bezpłatną rozmowę",
+  cta = "Umów bezpłatną konsultację",
 }: {
   title: React.ReactNode;
   subtitle?: string;
@@ -22,12 +22,11 @@ export default function SubpageCta({
             </p>
           )}
         </div>
-        <Link
-          href="/kontakt"
-          className="self-start md:self-auto inline-flex items-center justify-center min-h-[52px] rounded-full bg-ink px-6 py-4 text-[15px] sm:text-sm font-medium leading-none text-paper hover:opacity-90 active:scale-[0.97] transition-[opacity,scale]"
-        >
-          {cta} →
-        </Link>
+        <div className="self-start md:self-auto">
+          <PulseCTA href="/kontakt" size="lg">
+            {cta}
+          </PulseCTA>
+        </div>
       </div>
     </section>
   );

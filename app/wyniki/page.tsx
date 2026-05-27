@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import PageHero from "@/components/PageHero";
 import SubpageCta from "@/components/SubpageCta";
+import ScrollFade from "@/components/ScrollFade";
 import Image from "next/image";
 
 export const metadata: Metadata = {
@@ -75,7 +76,7 @@ export default function WynikiPage() {
         image="https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=2400&q=80&auto=format&fit=crop"
       />
 
-      <section className="bg-paper px-5 sm:px-6 md:px-12 lg:px-16 py-16 sm:py-20 md:py-32">
+      <ScrollFade as="section" className="bg-paper px-5 sm:px-6 md:px-12 lg:px-16 py-16 sm:py-20 md:py-32">
         <div className="mx-auto max-w-[1440px] flex flex-col gap-16 sm:gap-20 md:gap-32">
           {cases.map((c, i) => (
             <article
@@ -130,10 +131,10 @@ export default function WynikiPage() {
             </article>
           ))}
         </div>
-      </section>
+      </ScrollFade>
 
       {/* Bottom stats strip */}
-      <section className="bg-paper-100 border-y border-ink/[0.08]">
+      <ScrollFade as="section" className="bg-paper-100 border-y border-ink/[0.08]">
         <div className="mx-auto max-w-[1440px] grid grid-cols-2 md:grid-cols-4 divide-x divide-y md:divide-y-0 divide-ink/[0.08]">
           {[
             { v: "30+", l: "Trenerów" },
@@ -154,17 +155,19 @@ export default function WynikiPage() {
             </div>
           ))}
         </div>
-      </section>
+      </ScrollFade>
 
-      <SubpageCta
-        title={
-          <>
-            Twój case może być{" "}
-            <span className="italic font-light text-ink/70">następny</span>.
-          </>
-        }
-        subtitle="Sprawdźmy 45 minut, czy to ma sens. Bez ciśnienia, bez kombinowania."
-      />
+      <ScrollFade>
+        <SubpageCta
+          title={
+            <>
+              Twój case może być{" "}
+              <span className="italic font-light text-ink/70">następny</span>.
+            </>
+          }
+          subtitle="Sprawdźmy 45 minut, czy to ma sens. Bez ciśnienia, bez kombinowania."
+        />
+      </ScrollFade>
     </>
   );
 }

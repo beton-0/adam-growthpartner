@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import PageHero from "@/components/PageHero";
 import KontaktForm from "@/components/KontaktForm";
+import ScrollFade from "@/components/ScrollFade";
 
 export const metadata: Metadata = {
   title: "Kontakt — Adam | Growth Partner",
@@ -29,7 +30,7 @@ export default function KontaktPage() {
         </div>
       </section>
 
-      <section className="bg-paper-100 border-t border-ink/[0.08] px-5 sm:px-6 md:px-12 lg:px-16 py-14 sm:py-20 md:py-24">
+      <ScrollFade as="section" className="bg-paper-100 border-t border-ink/[0.08] px-5 sm:px-6 md:px-12 lg:px-16 py-14 sm:py-20 md:py-24">
         <div className="mx-auto max-w-[1100px] grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8 md:gap-12">
           {[
             {
@@ -55,7 +56,7 @@ export default function KontaktPage() {
             </div>
           ))}
         </div>
-      </section>
+      </ScrollFade>
     </>
   );
 }

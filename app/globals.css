@@ -93,3 +93,100 @@ select {
   margin-left: 0.05em;
   letter-spacing: 0;
 }
+
+/* ─── Pulse halo CTA ──────────────────────────────────────── */
+@keyframes pulse-halo {
+  0% {
+    box-shadow:
+      0 0 0 0 rgba(10, 10, 10, 0.22),
+      0 0 0 0 rgba(10, 10, 10, 0.1);
+  }
+  60% {
+    box-shadow:
+      0 0 0 12px rgba(10, 10, 10, 0),
+      0 0 0 22px rgba(10, 10, 10, 0);
+  }
+  100% {
+    box-shadow:
+      0 0 0 0 rgba(10, 10, 10, 0),
+      0 0 0 0 rgba(10, 10, 10, 0);
+  }
+}
+
+@keyframes pulse-halo-paper {
+  0% {
+    box-shadow:
+      0 0 0 0 rgba(247, 247, 244, 0.4),
+      0 0 0 0 rgba(247, 247, 244, 0.2);
+  }
+  60% {
+    box-shadow:
+      0 0 0 12px rgba(247, 247, 244, 0),
+      0 0 0 22px rgba(247, 247, 244, 0);
+  }
+  100% {
+    box-shadow:
+      0 0 0 0 rgba(247, 247, 244, 0),
+      0 0 0 0 rgba(247, 247, 244, 0);
+  }
+}
+
+.pulse-cta {
+  animation: pulse-halo 2.6s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.pulse-cta-light {
+  animation: pulse-halo-paper 2.6s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pulse-cta,
+  .pulse-cta-light {
+    animation: none;
+  }
+}
+
+/* ─── Slow float for hero panels / icons ──────────────────── */
+@keyframes float-y {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+.float-slow {
+  animation: float-y 6s ease-in-out infinite;
+}
+
+/* ─── Live pulse dot ──────────────────────────────────────── */
+@keyframes live-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(0.92); }
+}
+.live-dot {
+  animation: live-dot 1.8s ease-in-out infinite;
+}
+
+/* ─── iOS-style notification badge ────────────────────────── */
+.notif-badge {
+  background: #ff3b30;
+  color: white;
+  font-feature-settings: "tnum";
+  font-variant-numeric: tabular-nums;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.18), 0 0 0 2px rgba(10, 10, 10, 0.04);
+}
+
+/* ─── iOS app-icon gradients ──────────────────────────────── */
+.icon-tile-mail {
+  background: linear-gradient(180deg, #1ea1ff 0%, #0a72d8 100%);
+}
+.icon-tile-messages {
+  background: linear-gradient(180deg, #5bf275 0%, #16ad36 100%);
+}
+.icon-tile-phone {
+  background: linear-gradient(180deg, #6cf06f 0%, #1aa835 100%);
+}
+.icon-tile-instagram {
+  background: linear-gradient(135deg, #ffdc7d 0%, #f58529 22%, #dd2a7b 55%, #8134af 82%, #515bd4 100%);
+}
+.icon-tile-calendar {
+  background: #ffffff;
+  color: #ff3b30;
+}

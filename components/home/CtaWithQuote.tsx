@@ -1,4 +1,4 @@
-import Link from "next/link";
+import PulseCTA from "@/components/PulseCTA";
 
 export default function CtaWithQuote() {
   return (
@@ -36,12 +36,11 @@ export default function CtaWithQuote() {
               45 minut, bezpłatnie. Wychodzisz z 2-3 hipotezami wzrostu —
               niezależnie od tego, czy podejmiemy współpracę.
             </p>
-            <Link
-              href="/kontakt"
-              className="mt-7 sm:mt-8 inline-flex items-center justify-center min-h-[48px] rounded-full bg-ink px-6 py-3.5 text-[15px] sm:text-sm font-medium leading-none text-paper hover:opacity-90 active:scale-[0.97] transition-[opacity,scale]"
-            >
-              Umów demo systemu →
-            </Link>
+            <div className="mt-7 sm:mt-8">
+              <PulseCTA href="/kontakt" size="lg">
+                Umów bezpłatną konsultację
+              </PulseCTA>
+            </div>
           </div>
         </div>
       </div>

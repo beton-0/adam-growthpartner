@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import PageHero from "@/components/PageHero";
 import SubpageCta from "@/components/SubpageCta";
+import ScrollFade from "@/components/ScrollFade";
 
 export const metadata: Metadata = {
   title: "Proces — Adam | Growth Partner",
@@ -101,7 +102,7 @@ export default function ProcesPage() {
       />
 
       {/* Timeline */}
-      <section className="bg-paper px-5 sm:px-6 md:px-12 lg:px-16 py-16 sm:py-20 md:py-32">
+      <ScrollFade as="section" className="bg-paper px-5 sm:px-6 md:px-12 lg:px-16 py-16 sm:py-20 md:py-32">
         <div className="mx-auto max-w-[1100px]">
           <div className="relative flex flex-col gap-12 sm:gap-16 md:gap-24">
             {/* Vertical line */}
@@ -148,10 +149,10 @@ export default function ProcesPage() {
             ))}
           </div>
         </div>
-      </section>
+      </ScrollFade>
 
       {/* Principles */}
-      <section className="bg-[#0a0a0a] px-5 sm:px-6 md:px-12 lg:px-16 py-16 sm:py-20 md:py-32">
+      <ScrollFade as="section" className="bg-[#0a0a0a] px-5 sm:px-6 md:px-12 lg:px-16 py-16 sm:py-20 md:py-32">
         <div className="mx-auto max-w-[1440px]">
           <div className="max-w-2xl mb-10 sm:mb-14">
             <span className="font-mono text-[10px] sm:text-[11px] uppercase tracking-[0.18em] sm:tracking-[0.22em] text-paper/55">
@@ -181,17 +182,19 @@ export default function ProcesPage() {
             ))}
           </div>
         </div>
-      </section>
+      </ScrollFade>
 
-      <SubpageCta
-        title={
-          <>
-            Gotowy ruszyć?{" "}
-            <span className="italic font-light text-ink/70">Pierwsze 7 dni jest najtrudniejsze.</span>
-          </>
-        }
-        subtitle="Po 45-minutowej rozmowie wiesz, czy startujemy. Większości moich klientów wystarczył jeden call."
-      />
+      <ScrollFade>
+        <SubpageCta
+          title={
+            <>
+              Gotowy ruszyć?{" "}
+              <span className="italic font-light text-ink/70">Pierwsze 7 dni jest najtrudniejsze.</span>
+            </>
+          }
+          subtitle="Po 45-minutowej konsultacji wiesz, czy startujemy. Większości klientów wystarcza jeden call."
+        />
+      </ScrollFade>
     </>
   );
 }
