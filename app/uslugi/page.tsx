@@ -101,16 +101,16 @@ export default function UslugiPage() {
       />
 
       {/* Services list */}
-      <section className="px-6 md:px-12 lg:px-16 py-24 md:py-32 bg-paper">
-        <div className="mx-auto max-w-[1440px] flex flex-col gap-24 md:gap-32">
+      <section className="px-5 sm:px-6 md:px-12 lg:px-16 py-16 sm:py-20 md:py-32 bg-paper">
+        <div className="mx-auto max-w-[1440px] flex flex-col gap-16 sm:gap-20 md:gap-32">
           {services.map((s, i) => (
             <article
               key={s.no}
-              className={`grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-16 items-center ${
+              className={`grid grid-cols-1 md:grid-cols-12 gap-7 sm:gap-10 md:gap-16 items-center ${
                 i % 2 === 1 ? "md:[&>div:first-child]:order-2" : ""
               }`}
             >
-              <div className="md:col-span-6 relative aspect-[592/440] overflow-hidden rounded-[24px]">
+              <div className="md:col-span-6 relative aspect-[16/11] md:aspect-[592/440] overflow-hidden rounded-2xl sm:rounded-[24px]">
                 <Image
                   src={s.img}
                   alt=""
@@ -118,22 +118,22 @@ export default function UslugiPage() {
                   sizes="(min-width: 768px) 50vw, 100vw"
                   className="object-cover"
                 />
-                <div className="absolute top-5 left-5 inline-flex items-center justify-center px-3 py-1.5 rounded-full bg-paper/95 text-ink text-[11px] font-mono">
+                <div className="absolute top-4 left-4 sm:top-5 sm:left-5 inline-flex items-center justify-center px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-full bg-paper/95 text-ink text-[10.5px] sm:text-[11px] font-mono">
                   {s.no}
                 </div>
               </div>
               <div className="md:col-span-6 max-w-[520px]">
-                <h2 className="font-display text-[clamp(32px,4.4vw,52px)] text-ink leading-[1.05]">
+                <h2 className="font-display text-[clamp(26px,5.2vw,52px)] text-ink leading-[1.05] tracking-[-0.035em] [text-wrap:balance]">
                   {s.title}
                 </h2>
-                <p className="mt-5 text-[15px] md:text-base leading-[1.65] text-ink/75">
+                <p className="mt-4 sm:mt-5 text-[14.5px] sm:text-[15px] md:text-base leading-[1.6] sm:leading-[1.65] text-ink/75 [text-wrap:pretty]">
                   {s.body}
                 </p>
-                <ul className="mt-7 grid grid-cols-1 gap-2">
+                <ul className="mt-5 sm:mt-7 grid grid-cols-1 gap-2">
                   {s.bullets.map((b) => (
                     <li
                       key={b}
-                      className="flex items-start gap-3 text-[14px] text-ink/80"
+                      className="flex items-start gap-3 text-[13.5px] sm:text-[14px] text-ink/80 leading-[1.5]"
                     >
                       <span className="mt-[8px] inline-block h-[5px] w-[5px] rounded-full bg-ink/60 shrink-0" />
                       {b}
@@ -147,23 +147,23 @@ export default function UslugiPage() {
       </section>
 
       {/* Models / Packages */}
-      <section className="bg-paper-100 px-6 md:px-12 lg:px-16 py-24 md:py-32 border-y border-ink/[0.08]">
+      <section className="bg-paper-100 px-5 sm:px-6 md:px-12 lg:px-16 py-16 sm:py-20 md:py-32 border-y border-ink/[0.08]">
         <div className="mx-auto max-w-[1440px]">
-          <div className="max-w-2xl mb-14">
-            <span className="text-[11px] uppercase tracking-[0.22em] text-ink/55">
+          <div className="max-w-2xl mb-10 sm:mb-14">
+            <span className="font-mono text-[10px] sm:text-[11px] uppercase tracking-[0.18em] sm:tracking-[0.22em] text-ink/55">
               02 — Modele współpracy
             </span>
-            <h2 className="mt-4 font-display text-[clamp(36px,5vw,56px)] text-ink">
+            <h2 className="mt-3 sm:mt-4 font-display text-[clamp(28px,5.2vw,56px)] text-ink leading-[1.05] tracking-[-0.035em] [text-wrap:balance]">
               Trzy formaty.{" "}
-              <span className="italic font-light text-ink/70">Wybieramy razem.</span>
+              <span className="text-ink/55">Wybieramy razem.</span>
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-5">
             {models.map((m, i) => (
               <div
                 key={m.name}
-                className={`flex flex-col gap-6 rounded-3xl p-8 md:p-10 ${
+                className={`flex flex-col gap-5 sm:gap-6 rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-10 ${
                   i === 0
                     ? "bg-ink text-paper"
                     : "bg-paper border border-ink/[0.08]"
@@ -171,18 +171,18 @@ export default function UslugiPage() {
               >
                 <div className="flex flex-col gap-1">
                   <span
-                    className={`text-[11px] uppercase tracking-[0.2em] ${
+                    className={`font-mono text-[10px] sm:text-[11px] uppercase tracking-[0.18em] sm:tracking-[0.2em] ${
                       i === 0 ? "text-paper/60" : "text-ink/55"
                     }`}
                   >
                     Model {String(i + 1).padStart(2, "0")}
                   </span>
-                  <h3 className="font-display text-[28px] tracking-[-0.02em]">
+                  <h3 className="font-display text-[24px] sm:text-[28px] tracking-[-0.02em] leading-[1.1]">
                     {m.name}
                   </h3>
                 </div>
                 <div>
-                  <div className="font-display text-[28px] leading-none">
+                  <div className="font-display text-[22px] sm:text-[26px] md:text-[28px] leading-[1.05] tracking-[-0.02em] [text-wrap:balance]">
                     {m.price}
                   </div>
                   {m.sub && (

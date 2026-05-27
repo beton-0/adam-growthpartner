@@ -101,43 +101,43 @@ export default function ProcesPage() {
       />
 
       {/* Timeline */}
-      <section className="bg-paper px-6 md:px-12 lg:px-16 py-24 md:py-32">
+      <section className="bg-paper px-5 sm:px-6 md:px-12 lg:px-16 py-16 sm:py-20 md:py-32">
         <div className="mx-auto max-w-[1100px]">
-          <div className="relative flex flex-col gap-16 md:gap-24">
+          <div className="relative flex flex-col gap-12 sm:gap-16 md:gap-24">
             {/* Vertical line */}
-            <div className="absolute left-[18px] md:left-[24px] top-3 bottom-3 w-px bg-ink/15 hidden md:block" />
+            <div className="absolute left-[24px] md:left-[24px] top-3 bottom-3 w-px bg-ink/15 hidden md:block" />
 
             {phases.map((p, i) => (
               <div
                 key={p.range}
-                className="relative grid grid-cols-1 md:grid-cols-[80px_1fr] gap-6 md:gap-12"
+                className="relative grid grid-cols-1 md:grid-cols-[80px_1fr] gap-4 sm:gap-6 md:gap-12"
               >
                 <div className="flex md:flex-col items-center md:items-start gap-3 md:gap-2">
-                  <span className="relative z-10 inline-flex items-center justify-center h-12 w-12 rounded-full bg-ink text-paper font-mono text-[14px]">
+                  <span className="relative z-10 inline-flex items-center justify-center h-11 w-11 sm:h-12 sm:w-12 rounded-full bg-ink text-paper font-mono text-[13px] sm:text-[14px]">
                     {String(i + 1).padStart(2, "0")}
                   </span>
-                  <span className="text-[11px] uppercase tracking-[0.22em] text-ink/55 mt-2">
+                  <span className="font-mono text-[10.5px] sm:text-[11px] uppercase tracking-[0.18em] sm:tracking-[0.22em] text-ink/55 md:mt-2">
                     {p.range}
                   </span>
                 </div>
                 <div>
-                  <h2 className="font-display text-[clamp(32px,4.6vw,52px)] text-ink leading-[1.04]">
+                  <h2 className="font-display text-[clamp(26px,5.4vw,52px)] text-ink leading-[1.04] tracking-[-0.035em] [text-wrap:balance]">
                     {p.title}
                   </h2>
-                  <p className="mt-5 max-w-[640px] text-[15px] md:text-base leading-[1.65] text-ink/75">
+                  <p className="mt-4 sm:mt-5 max-w-[640px] text-[14.5px] sm:text-[15px] md:text-base leading-[1.6] sm:leading-[1.65] text-ink/75 [text-wrap:pretty]">
                     {p.body}
                   </p>
-                  <div className="mt-7 inline-flex flex-col gap-2 rounded-2xl bg-ink/[0.04] border border-ink/[0.06] p-5">
-                    <span className="text-[11px] uppercase tracking-[0.18em] text-ink/55">
+                  <div className="mt-6 sm:mt-7 inline-flex flex-col gap-2 rounded-2xl bg-ink/[0.04] border border-ink/[0.06] p-4 sm:p-5 w-full sm:w-auto">
+                    <span className="font-mono text-[10.5px] sm:text-[11px] uppercase tracking-[0.16em] sm:tracking-[0.18em] text-ink/55">
                       Co dostajesz
                     </span>
                     <ul className="flex flex-col gap-1.5">
                       {p.deliverables.map((d) => (
                         <li
                           key={d}
-                          className="flex items-start gap-2 text-[14px] text-ink/85"
+                          className="flex items-start gap-2 text-[13.5px] sm:text-[14px] text-ink/85 leading-[1.5]"
                         >
-                          <span className="mt-[8px] inline-block h-[4px] w-[4px] rounded-full bg-ink/60 shrink-0" />
+                          <span className="mt-[7px] sm:mt-[8px] inline-block h-[4px] w-[4px] rounded-full bg-ink/60 shrink-0" />
                           {d}
                         </li>
                       ))}
@@ -151,13 +151,13 @@ export default function ProcesPage() {
       </section>
 
       {/* Principles */}
-      <section className="bg-[#14161A] px-6 md:px-12 lg:px-16 py-24 md:py-32">
+      <section className="bg-[#0a0a0a] px-5 sm:px-6 md:px-12 lg:px-16 py-16 sm:py-20 md:py-32">
         <div className="mx-auto max-w-[1440px]">
-          <div className="max-w-2xl mb-14">
-            <span className="text-[11px] uppercase tracking-[0.22em] text-paper/55">
+          <div className="max-w-2xl mb-10 sm:mb-14">
+            <span className="font-mono text-[10px] sm:text-[11px] uppercase tracking-[0.18em] sm:tracking-[0.22em] text-paper/55">
               03 — Zasady
             </span>
-            <h2 className="mt-4 font-display text-[clamp(36px,5vw,56px)] text-paper">
+            <h2 className="mt-3 sm:mt-4 font-display text-[clamp(28px,5.4vw,56px)] text-paper leading-[1.05] tracking-[-0.035em] [text-wrap:balance]">
               Jak naprawdę pracujemy.
             </h2>
           </div>
@@ -166,15 +166,15 @@ export default function ProcesPage() {
             {principles.map((pr, i) => (
               <div
                 key={pr.title}
-                className="bg-[#14161A] p-8 md:p-10 flex flex-col gap-3"
+                className="bg-[#0a0a0a] p-6 sm:p-8 md:p-10 flex flex-col gap-3"
               >
-                <span className="font-mono text-[12px] text-paper/45">
-                  {String(i + 1).padStart(2, "0")}
+                <span className="font-mono text-[11.5px] sm:text-[12px] text-paper/45">
+                  / {String(i + 1).padStart(2, "0")}
                 </span>
-                <h3 className="font-display text-[24px] md:text-[28px] tracking-[-0.02em] text-paper">
+                <h3 className="font-display text-[20px] sm:text-[24px] md:text-[28px] tracking-[-0.02em] text-paper leading-[1.15] [text-wrap:balance]">
                   {pr.title}
                 </h3>
-                <p className="text-[14px] leading-[1.6] text-paper/65 max-w-md">
+                <p className="text-[13.5px] sm:text-[14px] leading-[1.55] sm:leading-[1.6] text-paper/65 max-w-md">
                   {pr.body}
                 </p>
               </div>

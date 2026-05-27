@@ -11,12 +11,12 @@ export default function ProofBar() {
         {stats.map((s) => (
           <div
             key={s.label}
-            className="flex items-baseline justify-between sm:justify-start sm:flex-col sm:items-start gap-2 sm:gap-1 px-6 md:px-10 py-7"
+            className="flex items-baseline justify-between sm:justify-start sm:flex-col sm:items-start gap-2 sm:gap-1 px-5 sm:px-6 md:px-10 py-5 sm:py-7"
           >
-            <span className="font-display text-[32px] md:text-[40px] leading-none tracking-[-0.02em] text-ink">
+            <span className="font-display text-[26px] sm:text-[32px] md:text-[40px] leading-none tracking-[-0.02em] text-ink">
               {s.value}
             </span>
-            <span className="text-[11px] uppercase tracking-[0.2em] text-ink/55 sm:mt-2">
+            <span className="text-[10.5px] sm:text-[11px] uppercase tracking-[0.18em] sm:tracking-[0.2em] text-ink/55 sm:mt-2 text-right sm:text-left">
               {s.label}
             </span>
           </div>

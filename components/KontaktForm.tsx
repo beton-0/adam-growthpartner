@@ -53,7 +53,7 @@ export default function KontaktForm() {
   return (
     <div>
       {/* Progress */}
-      <div className="flex items-center justify-center gap-3 mb-10 text-sm">
+      <div className="flex items-center justify-center gap-2 sm:gap-3 mb-8 sm:mb-10 text-[13px] sm:text-sm">
         <div className="flex items-center gap-2">
           <div
             className={`w-6 h-6 rounded-full flex items-center justify-center text-xs font-medium transition-colors ${
@@ -65,10 +65,10 @@ export default function KontaktForm() {
             1
           </div>
           <span className={step >= 1 ? "text-ink" : "text-ink/50"}>
-            Krótki formularz
+            Formularz
           </span>
         </div>
-        <div className="w-12 h-px bg-ink/15" />
+        <div className="w-8 sm:w-12 h-px bg-ink/15" />
         <div className="flex items-center gap-2">
           <div
             className={`w-6 h-6 rounded-full flex items-center justify-center text-xs font-medium transition-colors ${
@@ -80,7 +80,7 @@ export default function KontaktForm() {
             2
           </div>
           <span className={step >= 2 ? "text-ink" : "text-ink/50"}>
-            Wybór terminu
+            Termin
           </span>
         </div>
       </div>
@@ -94,9 +94,9 @@ export default function KontaktForm() {
             exit={{ opacity: 0, y: -12 }}
             transition={{ duration: 0.35 }}
             onSubmit={handleSubmit}
-            className="p-8 md:p-12 rounded-3xl bg-paper-100 border border-ink/[0.08]"
+            className="p-5 sm:p-8 md:p-12 rounded-2xl sm:rounded-3xl bg-paper-100 border border-ink/[0.08]"
           >
-            <div className="grid md:grid-cols-2 gap-5">
+            <div className="grid md:grid-cols-2 gap-4 sm:gap-5">
               <Field
                 label="Imię i nazwisko"
                 value={form.name}
@@ -164,21 +164,21 @@ export default function KontaktForm() {
               />
             </div>
 
-            <div className="mt-8 flex items-center justify-between gap-4 flex-wrap">
-              <p className="text-xs text-ink/55 max-w-sm">
-                Wypełnienie zajmuje 90 sekund. Po wysłaniu zobaczysz mój kalendarz
-                i wybierzesz dogodny termin.
+            <div className="mt-7 sm:mt-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 sm:flex-wrap">
+              <p className="text-[11.5px] sm:text-xs text-ink/55 sm:max-w-sm order-2 sm:order-1">
+                Wypełnienie zajmuje 90 sekund. Po wysłaniu zobaczysz kalendarz
+                i wybierzesz termin.
               </p>
               <button
                 type="submit"
                 disabled={!canSubmit}
-                className={`inline-flex items-center justify-center rounded-full px-6 py-3 text-sm font-medium transition-[opacity,scale] ${
+                className={`order-1 sm:order-2 inline-flex items-center justify-center min-h-[52px] sm:min-h-[48px] rounded-full px-6 py-3.5 text-[15px] sm:text-sm font-medium transition-[opacity,scale] ${
                   canSubmit
                     ? "bg-ink text-paper hover:opacity-90 active:scale-[0.97]"
                     : "bg-ink/15 text-ink/40 cursor-not-allowed"
                 }`}
               >
-                Przejdź do wyboru terminu →
+                Wybierz termin →
               </button>
             </div>
           </motion.form>
@@ -191,7 +191,7 @@ export default function KontaktForm() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -12 }}
             transition={{ duration: 0.35 }}
-            className="p-8 md:p-12 rounded-3xl bg-paper-100 border border-ink/[0.08] text-center"
+            className="p-6 sm:p-8 md:p-12 rounded-2xl sm:rounded-3xl bg-paper-100 border border-ink/[0.08] text-center"
           >
             <div className="w-14 h-14 mx-auto rounded-full bg-emerald-100 border border-emerald-300 flex items-center justify-center mb-6">
               <svg

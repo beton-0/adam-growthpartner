@@ -12,6 +12,9 @@
 
 html {
   scroll-behavior: smooth;
+  /* prevent any accidental horizontal scroll without breaking sticky/fixed */
+  overflow-x: clip;
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
@@ -21,6 +24,14 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   letter-spacing: -0.011em;
+  overflow-x: clip;
+}
+
+/* iOS Safari: keep form text >= 16px to prevent zoom on focus */
+input,
+textarea,
+select {
+  font-size: 16px;
 }
 
 ::selection {
