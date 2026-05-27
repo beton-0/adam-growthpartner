@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import PageHero from "@/components/PageHero";
 import KontaktForm from "@/components/KontaktForm";
 import ScrollFade from "@/components/ScrollFade";
+import PageJump from "@/components/PageJump";
 
 export const metadata: Metadata = {
   title: "Kontakt — Adam | Growth Partner",
@@ -57,6 +58,13 @@ export default function KontaktPage() {
           ))}
         </div>
       </ScrollFade>
+
+      <PageJump
+        number="01"
+        label="Strona główna"
+        href="/"
+        subtitle="Wróć do startu. Zobacz cały system w 30 sekund — od hero przez moduły po wyniki."
+      />
     </>
   );
 }

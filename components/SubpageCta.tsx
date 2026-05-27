@@ -3,7 +3,7 @@ import PulseCTA from "@/components/PulseCTA";
 export default function SubpageCta({
   title,
   subtitle,
-  cta = "Umów bezpłatną konsultację",
+  cta = "Umów konsultację strategiczną",
 }: {
   title: React.ReactNode;
   subtitle?: string;

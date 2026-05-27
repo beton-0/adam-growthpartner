@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import PageHero from "@/components/PageHero";
 import SubpageCta from "@/components/SubpageCta";
 import ScrollFade from "@/components/ScrollFade";
+import PageJump from "@/components/PageJump";
 import Image from "next/image";
 
 export const metadata: Metadata = {
@@ -168,6 +169,14 @@ export default function WynikiPage() {
           subtitle="Sprawdźmy 45 minut, czy to ma sens. Bez ciśnienia, bez kombinowania."
         />
       </ScrollFade>
+
+      <PageJump
+        number="05"
+        label="Kontakt"
+        href="/kontakt"
+        subtitle="45 minut, bezpłatnie. Formularz kwalifikujący, potem wybór terminu. Konkretne wnioski na wyjściu."
+        variant="dark"
+      />
     </>
   );
 }

@@ -96,7 +96,7 @@ export default function HomeHero() {
               className="mt-10 sm:mt-14 flex flex-col sm:flex-row sm:flex-wrap items-stretch sm:items-center gap-3"
             >
               <PulseCTA href="/kontakt" size="lg">
-                Umów bezpłatną konsultację
+                Umów konsultację strategiczną
               </PulseCTA>
               <Link
                 href="/proces"

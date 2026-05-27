@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import PageHero from "@/components/PageHero";
 import SubpageCta from "@/components/SubpageCta";
 import ScrollFade from "@/components/ScrollFade";
+import PageJump from "@/components/PageJump";
 
 export const metadata: Metadata = {
   title: "Proces — Adam | Growth Partner",
@@ -195,6 +196,13 @@ export default function ProcesPage() {
           subtitle="Po 45-minutowej konsultacji wiesz, czy startujemy. Większości klientów wystarcza jeden call."
         />
       </ScrollFade>
+
+      <PageJump
+        number="04"
+        label="Wyniki"
+        href="/wyniki"
+        subtitle="Trzy case studies z prawdziwymi liczbami. Punkt startu, taktyki, to co naprawdę poruszyło igłę."
+      />
     </>
   );
 }

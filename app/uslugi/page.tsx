@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import PageHero from "@/components/PageHero";
 import SubpageCta from "@/components/SubpageCta";
 import ScrollFade from "@/components/ScrollFade";
+import PageJump from "@/components/PageJump";
 import Image from "next/image";
 
 export const metadata: Metadata = {
@@ -237,6 +238,13 @@ export default function UslugiPage() {
           subtitle="Dobierzemy go razem po 45-minutowej konsultacji. Bez ciśnienia, bez slajdów sprzedażowych."
         />
       </ScrollFade>
+
+      <PageJump
+        number="03"
+        label="Proces"
+        href="/proces"
+        subtitle="Tydzień po tygodniu — od audytu po skalowanie. Pełen flow współpracy, bez slajdów i bez ściemy."
+      />
     </>
   );
 }
