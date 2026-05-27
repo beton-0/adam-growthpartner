@@ -3,10 +3,11 @@
 @tailwind utilities;
 
 :root {
-  --bg: #fafafa;
-  --fg: #0a0a0d;
-  --muted: #6b6b78;
-  --line: #e6e6ea;
+  --paper: #f5f3ec;
+  --paper-2: #ece9de;
+  --ink: #0c0c0c;
+  --ink-soft: rgba(12, 12, 12, 0.7);
+  --line: rgba(12, 12, 12, 0.1);
 }
 
 html {
@@ -14,79 +15,59 @@ html {
 }
 
 body {
-  background: var(--bg);
-  color: var(--fg);
+  background: var(--paper);
+  color: var(--ink);
   font-feature-settings: "ss01", "cv11";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   letter-spacing: -0.011em;
 }
 
-@layer utilities {
-  .font-display {
-    font-weight: 700;
-    letter-spacing: -0.045em;
-    font-feature-settings: "ss01", "cv11";
-  }
-}
-
 ::selection {
-  background: #0a0a0d;
-  color: #fafafa;
+  background: var(--ink);
+  color: var(--paper);
 }
 
-/* Subtle noise texture overlay */
-.noise::before {
+/* Editorial serif — Fraunces with soft, optical sizing */
+.font-serif {
+  font-variation-settings: "opsz" 144, "SOFT" 50;
+}
+
+/* Display serif — used for huge headings */
+.font-display {
+  font-family: var(--font-serif), Georgia, serif;
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  line-height: 1.04;
+  font-variation-settings: "opsz" 144, "SOFT" 50;
+}
+
+/* Subtle grain on hero images to feel less stocky */
+.grain::after {
   content: "";
-  position: fixed;
+  position: absolute;
   inset: 0;
   pointer-events: none;
-  z-index: 1;
-  opacity: 0.035;
-  mix-blend-mode: multiply;
+  opacity: 0.08;
+  mix-blend-mode: overlay;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
-/* Hero animated gradient background */
-.hero-gradient {
-  background: radial-gradient(
-      1200px 600px at 10% 10%,
-      rgba(180, 200, 255, 0.45),
-      transparent 60%
-    ),
-    radial-gradient(
-      900px 500px at 90% 20%,
-      rgba(255, 210, 180, 0.35),
-      transparent 60%
-    ),
-    radial-gradient(
-      800px 600px at 50% 100%,
-      rgba(200, 255, 220, 0.35),
-      transparent 60%
-    );
-}
-
-.gradient-text {
-  background: linear-gradient(135deg, #0a0a0d 0%, #3a3a44 40%, #6b6b78 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-/* Hide scrollbar on marquee */
+/* Marquee mask for trust strip */
 .marquee-mask {
   mask-image: linear-gradient(
     to right,
     transparent,
-    black 10%,
-    black 90%,
+    black 8%,
+    black 92%,
     transparent
   );
 }
 
-/* Subtle grid lines */
-.grid-bg {
-  background-image: linear-gradient(to right, rgba(10, 10, 13, 0.04) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(10, 10, 13, 0.04) 1px, transparent 1px);
-  background-size: 64px 64px;
+/* Hide scrollbar utility */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  scrollbar-width: none;
 }

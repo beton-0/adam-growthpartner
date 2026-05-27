@@ -1,18 +1,28 @@
 import type { Metadata } from "next";
-import { Inter_Tight, Manrope } from "next/font/google";
+import { Inter_Tight, Fraunces, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
+import SiteNav from "@/components/SiteNav";
+import SiteFooter from "@/components/SiteFooter";
 
 const sans = Inter_Tight({
   subsets: ["latin", "latin-ext"],
   weight: ["400", "500", "600", "700"],
-  variable: "--font-inter",
+  variable: "--font-sans",
   display: "swap",
 });
 
-const display = Manrope({
+const serif = Fraunces({
   subsets: ["latin", "latin-ext"],
-  weight: ["500", "600", "700", "800"],
-  variable: "--font-display",
+  weight: ["300", "400", "500", "600", "700"],
+  style: ["normal", "italic"],
+  variable: "--font-serif",
+  display: "swap",
+});
+
+const mono = JetBrains_Mono({
+  subsets: ["latin"],
+  weight: ["400", "500"],
+  variable: "--font-mono",
   display: "swap",
 });
 
@@ -28,9 +38,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="pl" className={`${sans.variable} ${display.variable}`}>
-      <body className="noise font-sans antialiased text-ink-900">
-        {children}
+    <html
+      lang="pl"
+      className={`${sans.variable} ${serif.variable} ${mono.variable} h-full antialiased`}
+    >
+      <body className="min-h-full flex flex-col font-sans bg-paper text-ink-900">
+        <SiteNav />
+        <main className="flex-1">{children}</main>
+        <SiteFooter />
       </body>
     </html>
   );
