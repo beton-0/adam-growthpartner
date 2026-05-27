@@ -31,8 +31,9 @@ export default function KontaktPage() {
         </div>
       </section>
 
-      <ScrollFade as="section" className="bg-paper-100 border-t border-ink/[0.08] px-5 sm:px-6 md:px-12 lg:px-16 py-14 sm:py-20 md:py-24">
-        <div className="mx-auto max-w-[1100px] grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8 md:gap-12">
+      <section className="bg-paper-100 border-t border-ink/[0.08] px-5 sm:px-6 md:px-12 lg:px-16 py-14 sm:py-20 md:py-24">
+        <ScrollFade>
+          <div className="mx-auto max-w-[1100px] grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8 md:gap-12">
           {[
             {
               t: "Krótko",
@@ -57,7 +58,8 @@ export default function KontaktPage() {
             </div>
           ))}
         </div>
-      </ScrollFade>
+        </ScrollFade>
+      </section>
 
       <PageJump
         number="01"

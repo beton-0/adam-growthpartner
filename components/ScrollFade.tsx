@@ -6,24 +6,22 @@ import { ReactNode, useRef } from "react";
 type Props = {
   children: ReactNode;
   className?: string;
-  /** how strong the blur is at the edges of viewport (px) */
+  /** how strong the blur is at viewport edges (px) */
   strength?: number;
-  /** wrapper tag — section/div */
-  as?: "section" | "div";
 };
 
 /**
- * Wraps a block so that its visual content blurs at the edges of the viewport
- * and is sharp when centered. Background colors stay fully opaque so adjacent
- * same-colored sections never reveal the body underneath.
+ * Wraps inner content (NOT the section background) so it blurs in
+ * at the bottom of the viewport, is sharp when centered, and blurs
+ * out at the top. Use inside a `<section>` so the section's bg-color
+ * stays solid — only what's inside this wrapper gets blurred.
  *
- * Respects prefers-reduced-motion — falls back to plain content.
+ * Respects prefers-reduced-motion.
  */
 export default function ScrollFade({
   children,
   className = "",
   strength = 8,
-  as = "div",
 }: Props) {
   const ref = useRef<HTMLDivElement>(null);
   const prefersReducedMotion = useReducedMotion();
@@ -33,7 +31,6 @@ export default function ScrollFade({
     offset: ["start end", "end start"],
   });
 
-  // Blur curve: high at edges (entering bottom / leaving top), zero in middle.
   const filterBlur = useTransform(
     scrollYProgress,
     [0, 0.22, 0.78, 1],
@@ -42,23 +39,17 @@ export default function ScrollFade({
 
   const filter = useTransform(filterBlur, (b) => `blur(${b}px)`);
 
-  const Tag = as === "section" ? motion.section : motion.div;
-
   if (prefersReducedMotion) {
-    const StaticTag = as === "section" ? "section" : "div";
-    return <StaticTag className={className}>{children}</StaticTag>;
+    return <div className={className}>{children}</div>;
   }
 
   return (
-    <Tag
+    <motion.div
       ref={ref}
-      style={{
-        filter,
-        willChange: "filter",
-      }}
+      style={{ filter, willChange: "filter" }}
       className={className}
     >
       {children}
-    </Tag>
+    </motion.div>
   );
 }

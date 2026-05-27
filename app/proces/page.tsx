@@ -103,8 +103,9 @@ export default function ProcesPage() {
       />
 
       {/* Timeline */}
-      <ScrollFade as="section" className="bg-paper px-5 sm:px-6 md:px-12 lg:px-16 py-16 sm:py-20 md:py-32">
-        <div className="mx-auto max-w-[1100px]">
+      <section className="bg-paper px-5 sm:px-6 md:px-12 lg:px-16 py-16 sm:py-20 md:py-32">
+        <ScrollFade>
+          <div className="mx-auto max-w-[1100px]">
           <div className="relative flex flex-col gap-12 sm:gap-16 md:gap-24">
             {/* Vertical line */}
             <div className="absolute left-[24px] md:left-[24px] top-3 bottom-3 w-px bg-ink/15 hidden md:block" />
@@ -149,12 +150,14 @@ export default function ProcesPage() {
               </div>
             ))}
           </div>
-        </div>
-      </ScrollFade>
+          </div>
+        </ScrollFade>
+      </section>
 
       {/* Principles */}
-      <ScrollFade as="section" className="bg-[#0a0a0a] px-5 sm:px-6 md:px-12 lg:px-16 py-16 sm:py-20 md:py-32">
-        <div className="mx-auto max-w-[1440px]">
+      <section className="bg-[#0a0a0a] px-5 sm:px-6 md:px-12 lg:px-16 py-16 sm:py-20 md:py-32">
+        <ScrollFade>
+          <div className="mx-auto max-w-[1440px]">
           <div className="max-w-2xl mb-10 sm:mb-14">
             <span className="font-mono text-[10px] sm:text-[11px] uppercase tracking-[0.18em] sm:tracking-[0.22em] text-paper/55">
               03 — Zasady
@@ -182,20 +185,19 @@ export default function ProcesPage() {
               </div>
             ))}
           </div>
-        </div>
-      </ScrollFade>
+          </div>
+        </ScrollFade>
+      </section>
 
-      <ScrollFade>
-        <SubpageCta
-          title={
-            <>
-              Gotowy ruszyć?{" "}
-              <span className="italic font-light text-ink/70">Pierwsze 7 dni jest najtrudniejsze.</span>
-            </>
-          }
-          subtitle="Po 45-minutowej konsultacji wiesz, czy startujemy. Większości klientów wystarcza jeden call."
-        />
-      </ScrollFade>
+      <SubpageCta
+        title={
+          <>
+            Gotowy ruszyć?{" "}
+            <span className="italic font-light text-ink/70">Pierwsze 7 dni jest najtrudniejsze.</span>
+          </>
+        }
+        subtitle="Po 45-minutowej konsultacji wiesz, czy startujemy. Większości klientów wystarcza jeden call."
+      />
 
       <PageJump
         number="04"

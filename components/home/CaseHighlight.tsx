@@ -1,10 +1,12 @@
 import Image from "next/image";
 import Link from "next/link";
+import ScrollFade from "@/components/ScrollFade";
 
 export default function CaseHighlight() {
   return (
     <section className="bg-paper px-5 sm:px-6 md:px-12 lg:px-16 py-20 sm:py-24 md:py-32 lg:py-36">
-      <div className="mx-auto max-w-[1440px]">
+      <ScrollFade>
+        <div className="mx-auto max-w-[1440px]">
         <div className="flex items-baseline justify-between mb-8 sm:mb-12 gap-4">
           <span className="font-mono text-[10px] sm:text-[11px] uppercase tracking-[0.18em] sm:tracking-[0.2em] text-ink/55">
             / Case 01
@@ -69,7 +71,8 @@ export default function CaseHighlight() {
             </div>
           </div>
         </div>
-      </div>
+        </div>
+      </ScrollFade>
     </section>
   );
 }

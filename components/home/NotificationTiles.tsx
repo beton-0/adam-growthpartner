@@ -2,6 +2,7 @@
 
 import { motion, useInView, useMotionValue, animate } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
+import ScrollFade from "@/components/ScrollFade";
 
 type Tile = {
   key: string;
@@ -210,7 +211,8 @@ export default function NotificationTiles() {
         }}
       />
 
-      <div className="relative mx-auto max-w-[1440px] grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+      <ScrollFade className="relative">
+        <div className="mx-auto max-w-[1440px] grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
         {/* Headline */}
         <div className="max-w-xl order-1">
           <span className="font-mono text-[10px] sm:text-[11px] uppercase tracking-[0.18em] sm:tracking-[0.2em] text-paper/55">
@@ -303,7 +305,8 @@ export default function NotificationTiles() {
             );
           })}
         </div>
-      </div>
+        </div>
+      </ScrollFade>
     </section>
   );
 }

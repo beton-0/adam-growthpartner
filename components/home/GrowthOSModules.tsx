@@ -1,4 +1,5 @@
 import Link from "next/link";
+import ScrollFade from "@/components/ScrollFade";
 
 const modules = [
   {
@@ -34,7 +35,8 @@ const modules = [
 export default function GrowthOSModules() {
   return (
     <section className="bg-[#0a0a0a] text-paper px-5 sm:px-6 md:px-12 lg:px-16 py-20 sm:py-24 md:py-32 lg:py-36">
-      <div className="mx-auto max-w-[1440px]">
+      <ScrollFade>
+        <div className="mx-auto max-w-[1440px]">
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 md:gap-8 mb-12 sm:mb-16 md:mb-20">
           <div className="max-w-2xl">
@@ -95,7 +97,8 @@ export default function GrowthOSModules() {
             </div>
           ))}
         </div>
-      </div>
+        </div>
+      </ScrollFade>
     </section>
   );
 }

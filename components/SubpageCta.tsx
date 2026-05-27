@@ -1,4 +1,5 @@
 import PulseCTA from "@/components/PulseCTA";
+import ScrollFade from "@/components/ScrollFade";
 
 export default function SubpageCta({
   title,
@@ -11,7 +12,8 @@ export default function SubpageCta({
 }) {
   return (
     <section className="bg-paper px-5 sm:px-6 md:px-12 lg:px-16 py-20 sm:py-24 md:py-32 border-t border-ink/[0.08]">
-      <div className="mx-auto flex max-w-[1440px] flex-col md:flex-row md:items-end md:justify-between gap-8 sm:gap-10">
+      <ScrollFade>
+        <div className="mx-auto flex max-w-[1440px] flex-col md:flex-row md:items-end md:justify-between gap-8 sm:gap-10">
         <div className="max-w-2xl">
           <h2 className="font-display text-[clamp(28px,5.4vw,56px)] text-ink leading-[1.05] tracking-[-0.035em] [text-wrap:balance]">
             {title}
@@ -27,7 +29,8 @@ export default function SubpageCta({
             {cta}
           </PulseCTA>
         </div>
-      </div>
+        </div>
+      </ScrollFade>
     </section>
   );
 }

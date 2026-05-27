@@ -77,8 +77,9 @@ export default function WynikiPage() {
         image="https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=2400&q=80&auto=format&fit=crop"
       />
 
-      <ScrollFade as="section" className="bg-paper px-5 sm:px-6 md:px-12 lg:px-16 py-16 sm:py-20 md:py-32">
-        <div className="mx-auto max-w-[1440px] flex flex-col gap-16 sm:gap-20 md:gap-32">
+      <section className="bg-paper px-5 sm:px-6 md:px-12 lg:px-16 py-16 sm:py-20 md:py-32">
+        <ScrollFade>
+          <div className="mx-auto max-w-[1440px] flex flex-col gap-16 sm:gap-20 md:gap-32">
           {cases.map((c, i) => (
             <article
               key={c.title}
@@ -132,11 +133,13 @@ export default function WynikiPage() {
             </article>
           ))}
         </div>
-      </ScrollFade>
+        </ScrollFade>
+      </section>
 
       {/* Bottom stats strip */}
-      <ScrollFade as="section" className="bg-paper-100 border-y border-ink/[0.08]">
-        <div className="mx-auto max-w-[1440px] grid grid-cols-2 md:grid-cols-4 divide-x divide-y md:divide-y-0 divide-ink/[0.08]">
+      <section className="bg-paper-100 border-y border-ink/[0.08]">
+        <ScrollFade>
+          <div className="mx-auto max-w-[1440px] grid grid-cols-2 md:grid-cols-4 divide-x divide-y md:divide-y-0 divide-ink/[0.08]">
           {[
             { v: "30+", l: "Trenerów" },
             { v: "4.2M zł", l: "Przychodu" },
@@ -156,19 +159,18 @@ export default function WynikiPage() {
             </div>
           ))}
         </div>
-      </ScrollFade>
+        </ScrollFade>
+      </section>
 
-      <ScrollFade>
-        <SubpageCta
-          title={
-            <>
-              Twój case może być{" "}
-              <span className="italic font-light text-ink/70">następny</span>.
-            </>
-          }
-          subtitle="Sprawdźmy 45 minut, czy to ma sens. Bez ciśnienia, bez kombinowania."
-        />
-      </ScrollFade>
+      <SubpageCta
+        title={
+          <>
+            Twój case może być{" "}
+            <span className="italic font-light text-ink/70">następny</span>.
+          </>
+        }
+        subtitle="Sprawdźmy 45 minut, czy to ma sens. Bez ciśnienia, bez kombinowania."
+      />
 
       <PageJump
         number="05"

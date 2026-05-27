@@ -103,8 +103,9 @@ export default function UslugiPage() {
       />
 
       {/* Services list */}
-      <ScrollFade as="section" className="px-5 sm:px-6 md:px-12 lg:px-16 py-16 sm:py-20 md:py-32 bg-paper">
-        <div className="mx-auto max-w-[1440px] flex flex-col gap-16 sm:gap-20 md:gap-32">
+      <section className="px-5 sm:px-6 md:px-12 lg:px-16 py-16 sm:py-20 md:py-32 bg-paper">
+        <ScrollFade>
+          <div className="mx-auto max-w-[1440px] flex flex-col gap-16 sm:gap-20 md:gap-32">
           {services.map((s, i) => (
             <article
               key={s.no}
@@ -146,11 +147,13 @@ export default function UslugiPage() {
             </article>
           ))}
         </div>
-      </ScrollFade>
+        </ScrollFade>
+      </section>
 
       {/* Models / Packages */}
-      <ScrollFade as="section" className="bg-paper-100 px-5 sm:px-6 md:px-12 lg:px-16 py-16 sm:py-20 md:py-32 border-y border-ink/[0.08]">
-        <div className="mx-auto max-w-[1440px]">
+      <section className="bg-paper-100 px-5 sm:px-6 md:px-12 lg:px-16 py-16 sm:py-20 md:py-32 border-y border-ink/[0.08]">
+        <ScrollFade>
+          <div className="mx-auto max-w-[1440px]">
           <div className="max-w-2xl mb-10 sm:mb-14">
             <span className="font-mono text-[10px] sm:text-[11px] uppercase tracking-[0.18em] sm:tracking-[0.22em] text-ink/55">
               02 — Modele współpracy
@@ -224,20 +227,19 @@ export default function UslugiPage() {
               </div>
             ))}
           </div>
-        </div>
-      </ScrollFade>
+          </div>
+        </ScrollFade>
+      </section>
 
-      <ScrollFade>
-        <SubpageCta
-          title={
-            <>
-              Nie wiesz,{" "}
-              <span className="italic font-light text-ink/70">który format dla Ciebie?</span>
-            </>
-          }
-          subtitle="Dobierzemy go razem po 45-minutowej konsultacji. Bez ciśnienia, bez slajdów sprzedażowych."
-        />
-      </ScrollFade>
+      <SubpageCta
+        title={
+          <>
+            Nie wiesz,{" "}
+            <span className="italic font-light text-ink/70">który format dla Ciebie?</span>
+          </>
+        }
+        subtitle="Dobierzemy go razem po 45-minutowej konsultacji. Bez ciśnienia, bez slajdów sprzedażowych."
+      />
 
       <PageJump
         number="03"

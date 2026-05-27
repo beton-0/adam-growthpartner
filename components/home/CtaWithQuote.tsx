@@ -3,6 +3,7 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import PulseCTA from "@/components/PulseCTA";
+import ScrollFade from "@/components/ScrollFade";
 
 const testimonials = [
   {
@@ -60,7 +61,8 @@ export default function CtaWithQuote() {
 
   return (
     <section className="bg-paper px-5 sm:px-6 md:px-12 lg:px-16 py-20 sm:py-24 md:py-32 lg:py-36 border-t border-ink/[0.08]">
-      <div className="mx-auto max-w-[1100px]">
+      <ScrollFade>
+        <div className="mx-auto max-w-[1100px]">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 sm:gap-12 lg:gap-20 items-start">
           {/* Rotator side */}
           <div className="lg:col-span-7">
@@ -170,7 +172,8 @@ export default function CtaWithQuote() {
             </div>
           </div>
         </div>
-      </div>
+        </div>
+      </ScrollFade>
     </section>
   );
 }
