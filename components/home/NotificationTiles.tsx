@@ -165,28 +165,19 @@ function AnimatedBadge({
   useEffect(() => {
     if (!trigger) return;
     const controls = animate(mv, to, {
-      duration: 2.4,
+      duration: 3.8,
       delay,
-      ease: [0.22, 1, 0.36, 1],
+      ease: [0.16, 1, 0.3, 1],
       onUpdate: (v) => setDisplay(Math.round(v)),
     });
     return () => controls.stop();
   }, [trigger, to, mv, delay]);
 
-  if (display === 0 && to === 0) {
-    // when arrived at 0 — show a check-style state
-    return (
-      <span className="notif-badge absolute -top-1.5 -right-1.5 flex items-center justify-center rounded-full h-[22px] min-w-[22px] px-1.5 text-[11px] font-semibold leading-none font-mono">
-        0
-      </span>
-    );
-  }
-
   const text =
     cap !== undefined && display > cap ? `${cap}+` : `${display}`;
 
   return (
-    <span className="notif-badge absolute -top-1.5 -right-1.5 flex items-center justify-center rounded-full h-[22px] min-w-[22px] px-1.5 text-[11px] font-semibold leading-none font-mono">
+    <span className="notif-badge absolute -top-2 -right-2 flex items-center justify-center rounded-full h-[28px] min-w-[28px] px-2 text-[13px] font-semibold leading-none font-mono tabular-nums">
       {text}
     </span>
   );
@@ -194,7 +185,8 @@ function AnimatedBadge({
 
 export default function NotificationTiles() {
   const ref = useRef<HTMLDivElement>(null);
-  const inView = useInView(ref, { once: false, amount: 0.35 });
+  // Animate ONLY ONCE on first reveal. Subsequent scroll up/down keeps state.
+  const inView = useInView(ref, { once: true, amount: 0.35 });
 
   return (
     <section className="relative bg-[#0a0a0a] text-paper overflow-hidden px-5 sm:px-6 md:px-12 lg:px-16 py-20 sm:py-24 md:py-32 lg:py-36">
