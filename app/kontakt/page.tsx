@@ -65,6 +65,7 @@ export default function KontaktPage() {
         number="01"
         label="Strona główna"
         href="/"
+        variant="dark"
         subtitle="Wróć do startu. Zobacz cały system w 30 sekund — od hero przez moduły po wyniki."
       />
     </>

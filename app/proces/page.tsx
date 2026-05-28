@@ -203,6 +203,7 @@ export default function ProcesPage() {
         number="04"
         label="Wyniki"
         href="/wyniki"
+        variant="dark"
         subtitle="Trzy case studies z prawdziwymi liczbami. Punkt startu, taktyki, to co naprawdę poruszyło igłę."
       />
     </>

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import PulseCTA from "@/components/PulseCTA";
 
 export default function SiteFooter() {
   return (
@@ -20,12 +21,11 @@ export default function SiteFooter() {
             System sprzedaży dla trenerów. Acquisition, content, sales,
             retention — cztery moduły, jeden silnik, mierzalne wyniki.
           </p>
-          <Link
-            href="/kontakt"
-            className="inline-flex items-center gap-2 min-h-[44px] py-2 text-[13.5px] sm:text-sm text-ink/80 hover:text-ink underline decoration-ink/30 underline-offset-4 hover:decoration-ink"
-          >
-            Umów konsultację strategiczną →
-          </Link>
+          <div className="mt-1">
+            <PulseCTA href="/kontakt" size="md">
+              Umów konsultację strategiczną
+            </PulseCTA>
+          </div>
         </div>
 
         <div className="grid grid-cols-2 sm:flex sm:flex-row gap-8 sm:gap-12 lg:gap-20">
@@ -79,11 +79,10 @@ export default function SiteFooter() {
         </div>
       </div>
 
-      <div className="relative z-10 mx-auto mt-12 sm:mt-16 flex w-full max-w-[1440px] flex-col gap-2 sm:gap-3 sm:flex-row sm:items-center sm:justify-between border-t border-ink/[0.08] pt-5 sm:pt-6 text-[10.5px] sm:text-xs text-ink/55">
+      <div className="relative z-10 mx-auto mt-12 sm:mt-16 flex w-full max-w-[1440px] border-t border-ink/[0.08] pt-5 sm:pt-6 text-[10.5px] sm:text-xs text-ink/55">
         <p className="font-mono">
-          © {new Date().getFullYear()} GrowthOS™ · Adam Gawrysiak.
+          © {new Date().getFullYear()} GrowthOS<span className="tm">™</span> · Adam Gawrysiak.
         </p>
-        <p className="font-mono">Built with Next.js · Tailwind · Framer Motion</p>
       </div>
     </footer>
   );

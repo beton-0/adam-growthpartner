@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { useEffect, useState } from "react";
 import PulseCTA from "@/components/PulseCTA";
 import HeroPanel from "@/components/home/HeroPanel";
@@ -17,6 +17,7 @@ const rotations = [
 
 export default function HomeHero() {
   const [index, setIndex] = useState(0);
+  const prefersReducedMotion = useReducedMotion();
 
   useEffect(() => {
     const id = setInterval(() => {
@@ -27,46 +28,56 @@ export default function HomeHero() {
 
   return (
     <section className="relative isolate flex min-h-[100svh] flex-col overflow-hidden bg-paper">
-      {/* Faint grid backdrop */}
+      {/* Faint grid backdrop — cheap, GPU-friendly */}
       <div className="absolute inset-0 -z-20 grid-bg opacity-90" />
       <div
         aria-hidden
         className="absolute inset-0 -z-20 bg-gradient-to-b from-paper via-paper/60 to-paper"
       />
 
-      {/* Soft colored glows behind the headline */}
-      <div aria-hidden className="absolute inset-0 -z-10 pointer-events-none overflow-hidden">
+      {/* Soft colored glows — DESKTOP ONLY (heavy blur kills mobile perf) */}
+      <div aria-hidden className="hidden md:block absolute inset-0 -z-10 pointer-events-none overflow-hidden">
         <motion.div
-          initial={{ opacity: 0, scale: 0.8 }}
+          initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1.6, ease: "easeOut" }}
-          className="absolute top-[18%] left-[10%] w-[520px] h-[520px] rounded-full blur-[110px]"
+          transition={{ duration: 1.4, ease: "easeOut" }}
+          className="absolute top-[18%] left-[10%] w-[420px] h-[420px] rounded-full blur-[70px]"
           style={{
             background:
               "radial-gradient(circle, rgba(255, 195, 165, 0.55) 0%, transparent 65%)",
           }}
         />
         <motion.div
-          initial={{ opacity: 0, scale: 0.8 }}
+          initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1.6, ease: "easeOut", delay: 0.15 }}
-          className="absolute top-[8%] right-[14%] w-[480px] h-[480px] rounded-full blur-[120px]"
+          transition={{ duration: 1.4, ease: "easeOut", delay: 0.15 }}
+          className="absolute top-[8%] right-[14%] w-[380px] h-[380px] rounded-full blur-[80px]"
           style={{
             background:
               "radial-gradient(circle, rgba(190, 210, 255, 0.5) 0%, transparent 70%)",
           }}
         />
         <motion.div
-          initial={{ opacity: 0, scale: 0.8 }}
+          initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1.8, ease: "easeOut", delay: 0.25 }}
-          className="absolute bottom-[10%] left-[35%] w-[440px] h-[440px] rounded-full blur-[120px]"
+          transition={{ duration: 1.4, ease: "easeOut", delay: 0.25 }}
+          className="absolute bottom-[10%] left-[35%] w-[340px] h-[340px] rounded-full blur-[80px]"
           style={{
             background:
               "radial-gradient(circle, rgba(200, 255, 215, 0.4) 0%, transparent 70%)",
           }}
         />
       </div>
+
+      {/* Subtle mobile-only ambient glow (no blur, just gradient) */}
+      <div
+        aria-hidden
+        className="md:hidden absolute inset-x-0 top-1/4 -z-10 pointer-events-none h-[60vh]"
+        style={{
+          background:
+            "radial-gradient(60% 50% at 50% 40%, rgba(255, 200, 170, 0.18) 0%, transparent 70%)",
+        }}
+      />
 
       <div className="relative z-10 mx-auto flex w-full max-w-[1440px] flex-1 flex-col justify-center px-5 sm:px-6 md:px-12 lg:px-16 pt-28 pb-16 sm:pt-32 md:pt-40">
         {/* Centered status chips on top */}
@@ -76,12 +87,12 @@ export default function HomeHero() {
           transition={{ duration: 0.5 }}
           className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 mb-10 sm:mb-14"
         >
-          <span className="inline-flex items-center gap-2 rounded-full border border-ink/15 bg-paper/80 backdrop-blur-sm px-3 py-1.5 text-[10px] sm:text-[11px] font-medium uppercase tracking-[0.16em] sm:tracking-[0.18em] text-ink/70">
+          <span className="inline-flex items-center gap-2 rounded-full border border-ink/15 bg-paper/80 px-3 py-1.5 text-[10px] sm:text-[11px] font-medium uppercase tracking-[0.16em] sm:tracking-[0.18em] text-ink/70">
             <span className="font-mono text-ink/55">v.2026</span>
             <span className="text-ink/30">/</span>
             <span>System sprzedaży dla trenerów</span>
           </span>
-          <span className="inline-flex items-center gap-2 rounded-full bg-paper/60 backdrop-blur-sm px-3 py-1.5 text-[10px] sm:text-[11px] font-medium uppercase tracking-[0.16em] sm:tracking-[0.18em] text-ink/55">
+          <span className="inline-flex items-center gap-2 rounded-full bg-paper/60 px-3 py-1.5 text-[10px] sm:text-[11px] font-medium uppercase tracking-[0.16em] sm:tracking-[0.18em] text-ink/55">
             <span className="relative flex h-1.5 w-1.5">
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-500 opacity-70" />
               <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-emerald-600" />
@@ -110,10 +121,10 @@ export default function HomeHero() {
                 <AnimatePresence mode="wait">
                   <motion.span
                     key={rotations[index]}
-                    initial={{ opacity: 0, y: 14, filter: "blur(6px)" }}
-                    animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                    exit={{ opacity: 0, y: -14, filter: "blur(6px)" }}
-                    transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+                    initial={prefersReducedMotion ? { opacity: 0 } : { opacity: 0, y: 14 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={prefersReducedMotion ? { opacity: 0 } : { opacity: 0, y: -14 }}
+                    transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
                     className="absolute inset-x-0 top-0 block text-ink/85 [text-wrap:balance]"
                   >
                     {rotations[index]}

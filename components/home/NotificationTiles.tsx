@@ -137,7 +137,7 @@ const tilesData: Tile[] = [
     key: "calendar",
     label: "Kalendarz",
     from: 0,
-    to: 132,
+    to: 100,
     displayCap: 99,
     bg: "icon-tile-calendar",
     badge: "",

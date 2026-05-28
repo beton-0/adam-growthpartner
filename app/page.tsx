@@ -19,6 +19,7 @@ export default function Home() {
         number="02"
         label="Usługi"
         href="/uslugi"
+        variant="dark"
         subtitle="Cztery klocki, jeden system. Acquisition, content, sales, retention — wszystko, co składa się na GrowthOS™."
       />
     </>

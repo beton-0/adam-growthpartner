@@ -1,4 +1,7 @@
+"use client";
+
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 type Props = {
   eyebrow: string;
@@ -25,16 +28,31 @@ export default function PageHero({ eyebrow, title, subtitle, image, imageAlt = "
       </div>
 
       <div className="relative mx-auto w-full max-w-[1440px] px-5 sm:px-6 md:px-12 lg:px-16">
-        <span className="font-mono text-[10px] sm:text-[11px] uppercase tracking-[0.18em] sm:tracking-[0.22em] text-ink/55">
+        <motion.span
+          initial={{ opacity: 0, y: 8 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+          className="font-mono text-[10px] sm:text-[11px] uppercase tracking-[0.18em] sm:tracking-[0.22em] text-ink/55 inline-block"
+        >
           {eyebrow}
-        </span>
-        <h1 className="mt-3 sm:mt-4 max-w-[18ch] font-display text-[clamp(34px,7vw,84px)] text-ink leading-[1.02] tracking-[-0.035em] [text-wrap:balance] break-words">
+        </motion.span>
+        <motion.h1
+          initial={{ opacity: 0, y: 16, filter: "blur(4px)" }}
+          animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+          transition={{ duration: 0.7, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
+          className="mt-3 sm:mt-4 max-w-[18ch] font-display text-[clamp(34px,7vw,84px)] text-ink leading-[1.02] tracking-[-0.035em] [text-wrap:balance] break-words"
+        >
           {title}
-        </h1>
+        </motion.h1>
         {subtitle && (
-          <p className="mt-5 sm:mt-6 max-w-[600px] text-[14.5px] sm:text-[15px] md:text-base leading-[1.6] sm:leading-[1.65] text-ink/75 [text-wrap:pretty]">
+          <motion.p
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.28, ease: [0.22, 1, 0.36, 1] }}
+            className="mt-5 sm:mt-6 max-w-[600px] text-[14.5px] sm:text-[15px] md:text-base leading-[1.6] sm:leading-[1.65] text-ink/75 [text-wrap:pretty]"
+          >
             {subtitle}
-          </p>
+          </motion.p>
         )}
       </div>
     </section>

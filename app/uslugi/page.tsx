@@ -223,6 +223,7 @@ export default function UslugiPage() {
         number="03"
         label="Proces"
         href="/proces"
+        variant="dark"
         subtitle="Tydzień po tygodniu — od audytu po skalowanie. Pełen flow współpracy, bez slajdów i bez ściemy."
       />
     </>
